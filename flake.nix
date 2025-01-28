@@ -11,17 +11,26 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations = {
-      hyper-v-trial = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/hyper-v-trial/configuration.nix
-          ./system
-        ];
+  outputs = { self, nixpkgs, ... }@inputs:
+    let
+      user = {
+        name = "philipdb";
+        githubName = "PhiliPdB";
+        email = "phlpdbrn@gmail.com";
+        gpgKey = "4EC55FB707DC24C4";
       };
-    };
+    in
+    {
+      nixosConfigurations = {
+        hyper-v-trial = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs user; };
+          modules = [
+            ./hosts/hyper-v-trial/configuration.nix
+            ./system
+          ];
+        };
+      };
 
-    homeManagerModules.default = ./user;
-  };
+      homeManagerModules.default = ./user;
+    };
 }

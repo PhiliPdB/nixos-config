@@ -1,13 +1,13 @@
-{ ... }:
+{ user, ... }:
 {
   programs.git = {
     enable = true;
     
-    userName = "PhiliPdB";
-    userEmail = "phlpdbrn@gmail.com";
+    userName = user.githubName;
+    userEmail = user.email;
 
     signing = {
-      key = "4EC55FB707DC24C4";
+      key = user.gpgKey;
       signByDefault = true;
     };
   };

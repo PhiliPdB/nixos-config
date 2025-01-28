@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, user, ... }:
 
 {
   imports =[
@@ -75,7 +75,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.philipdb = {
+  users.users.${user.name} = {
     isNormalUser = true;
     description = "Philip";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -88,10 +88,10 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users = {
-      "philipdb" = import ./home.nix;
+      ${user.name} = import ./home.nix;
     };
     # also pass the inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs user; };
   };
 
   # Allow unfree packages

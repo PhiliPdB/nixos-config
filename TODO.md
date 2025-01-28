@@ -9,7 +9,7 @@
     * [ ] KDE Theming
 - [ ] Applications
     * [ ] Office
-    * [ ] Gaming
+    * [x] Gaming
     * [ ] Rawtherapee
     * [ ] VSCode
     * [x] Proton apps
