@@ -81,6 +81,8 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+  # Enable zsh as it is the default shell
+  programs.zsh.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -92,21 +94,15 @@
     extraSpecialArgs = { inherit inputs; };
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  programs.zsh.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+
+  # Install firefox.
+  programs.firefox.enable = true;
+  # Install steam and steam-related applications
+  steam.enable = true;
+
 
   # List services that you want to enable:
 
