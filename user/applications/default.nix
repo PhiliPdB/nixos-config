@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./proton.nix
+  ];
+}

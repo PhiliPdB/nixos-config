@@ -1,0 +1,17 @@
+{
+    "nix.serverSettings": {
+        "nixd": {
+            "nixpkgs": {
+                "expr": "import <nixpkgs> { }"
+            },
+            "formatting": {
+                "command": [ "nixfmt" ]
+            },
+            "options": {
+                "nixos": {
+                    "expr": "(builtins.getFlake \"${workspaceFolder}\").nixosConfigurations.hyper-v-trial.options"
+                }
+            }
+        }
+    }
+}
