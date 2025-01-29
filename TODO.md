@@ -20,8 +20,8 @@
     * [ ] Dotnet?
 - [ ] NixOS stuff
     * [ ] Standalone home-manager
-    * [ ] Auto cleanup and update
-    * [ ] username as variable in config
+    * [x] Auto cleanup and update
+    * [x] username as variable in config
 - [ ] Dotfiles management
 - [x] Git
     * [x] gpg signing
