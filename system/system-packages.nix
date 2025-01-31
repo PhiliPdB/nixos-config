@@ -6,6 +6,7 @@
     curl
     git
     htop
+    neofetch
     sl
     vim
     vscode

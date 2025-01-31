@@ -8,6 +8,7 @@
     * [x] Nix shell
 - [ ] DE
     * [ ] KDE Theming
+    * [ ] Plasma-manager
 - [ ] Applications
     * [ ] Office
     * [x] Gaming
