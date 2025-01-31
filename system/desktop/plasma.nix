@@ -10,9 +10,10 @@
     services.desktopManager.plasma6.enable = true;
 
     # Install packages related to theming
-    # environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
+      (callPackage ./customization/icons.nix { colorVariants = [ "Blue" "Blue-Dark" ]; })
     #   materia-kde-theme
     #   papirus-icon-theme
-    # ];
+    ];
   };
 }
