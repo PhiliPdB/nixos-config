@@ -5,6 +5,7 @@
     * [x] ZSH highlight complete
     * [x] LSD command
     * [ ] Default theming
+    * [x] Nix shell
 - [ ] DE
     * [ ] KDE Theming
 - [ ] Applications
