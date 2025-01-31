@@ -9,6 +9,12 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -18,6 +24,8 @@
         githubName = "PhiliPdB";
         email = "phlpdbrn@gmail.com";
         gpgKey = "4EC55FB707DC24C4";
+
+        desktop = "plasma";
       };
     in
     {

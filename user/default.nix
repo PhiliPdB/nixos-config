@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./applications
+    ./desktop
     ./terminal
     ./programming/nix.nix
 

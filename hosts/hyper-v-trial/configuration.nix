@@ -41,7 +41,8 @@
   };
 
   # Make sure we have a desktop environment
-  desktop-environment.enable = true;
+  desktop-environment.enable = user.desktop != null;
+  kde-plasma.enable = user.desktop == "plasma";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -87,6 +88,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [
+      (if user.desktop == "plasma" then inputs.plasma-manager.homeManagerModules.plasma-manager else {})
+    ];
+
     users = {
       ${user.name} = import ./home.nix;
     };
