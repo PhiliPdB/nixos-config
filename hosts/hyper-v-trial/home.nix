@@ -20,6 +20,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   # Set options in imported modules
+  office.enable = true;
   proton-apps.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
