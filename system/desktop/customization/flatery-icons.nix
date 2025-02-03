@@ -3,7 +3,6 @@
   fetchFromGitHub,
   gitUpdater,
   gtk3,
-  breeze-icons,
 
   colorVariants ? [ "all" ],
 }:
@@ -14,8 +13,16 @@ lib.checkListOfEnum "Flatery colors"
     "all"
     "Black-Dark" "Black"
     "Blue-Dark" "Blue"
-    "Dark"
     "Gray-Dark" "Gray"
+    "Green-Dark" "Green"
+    "Indigo-Dark" "Indigo"
+    "Mint-Dark" "Mint"
+    "Orange-Dark" "Orange"
+    "Pink-Dark" "Pink"
+    "Red-Dark" "Red"
+    "Sky-Dark" "Sky"
+    "Teal-Dark" "Teal"
+    "Yellow-Dark" "Yellow"
   ]
   colorVariants
 stdenvNoCC.mkDerivation {
@@ -33,13 +40,7 @@ stdenvNoCC.mkDerivation {
     gtk3
   ];
 
-  propagatedBuildInputs = [
-    breeze-icons
-  ];
-
   dontDropIconThemeCache = true;
-
-  dontPatchElf = true;
   dontRewriteSymlinks = true;
 
   postPatch = ''
@@ -49,10 +50,17 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
+    # Replace output directory in the install script
     substituteInPlace install.sh \
-      --replace-quiet '/usr/share/icons' '$out/share/icons'
+      --replace-fail '/usr/share/icons' '$out/share/icons'
+    # Create new directory for the output
     mkdir -p $out/share/icons
 
+    # Copy base themes to output for the symlinks to work
+    cp -rf Flatery $out/share/icons
+    cp -rf Flatery-Dark $out/share/icons
+
+    # Install selected themes
     ./install.sh -g -v '${builtins.toString colorVariants}'
 
     for theme in $out/share/icons/*; do
