@@ -8,6 +8,10 @@
     enableSshSupport = true;
   };
 
-  # To make the gnome3 entry work
-  home.packages = [ pkgs.gcr ];
+  home.packages = with pkgs; [
+    # To make the gnome3 entry work
+    gcr
+    # GUI from kde
+    kgpg
+  ];
 }
