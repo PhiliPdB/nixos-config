@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, user, ... }:
 {
   imports = [
     ./plasma.nix
@@ -13,6 +13,6 @@
     services.xserver.enable = true;
 
     # Enable kde plasma by default
-    kde-plasma.enable = lib.mkDefault true;
+    kde-plasma.enable = user.desktop == "plasma";
   };
 }

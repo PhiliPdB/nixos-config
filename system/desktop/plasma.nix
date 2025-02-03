@@ -11,9 +11,7 @@
 
     # Install packages related to theming
     environment.systemPackages = with pkgs; [
-      (callPackage ./customization/flatery-icons.nix { colorVariants = [ "Blue" "Blue-Dark" ]; })
-    #   materia-kde-theme
-    #   papirus-icon-theme
+      (callPackage ./icons/flatery.nix { colorVariants = [ "Blue" "Blue-Dark" ]; })
     ];
   };
 }
