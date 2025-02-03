@@ -10,7 +10,7 @@
     * [ ] KDE Theming
     * [ ] Plasma-manager
 - [ ] Applications
-    * [ ] Office
+    * [x] Office
     * [x] Gaming
     * [ ] Rawtherapee
     * [ ] VSCode
