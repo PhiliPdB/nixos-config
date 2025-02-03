@@ -8,7 +8,6 @@
     htop
     neofetch
     sl
-    vim
     vscode
     wget
   ];
