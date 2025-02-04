@@ -8,7 +8,11 @@
     * [x] Nix shell
 - [ ] DE
     * [ ] KDE Theming
+        - [ ] Colors
+        - [ ] Window styles?
+        - [ ] Taskbar
     * [ ] Plasma-manager
+    * [ ] SDDM Theming
 - [ ] Applications
     * [x] Office
     * [x] Gaming
