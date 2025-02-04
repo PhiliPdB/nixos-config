@@ -9,7 +9,5 @@
     home.file = {
       ".face.icon".source = ../dotfiles/face.icon;
     };
-
-    # QT and GTK styling ?!
   };
 }
