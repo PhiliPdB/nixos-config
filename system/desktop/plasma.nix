@@ -6,7 +6,6 @@
 
   config = lib.mkIf (config.desktop-environment.enable && config.kde-plasma.enable) {
     # Enable the KDE Plasma Desktop Environment.
-    services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
 
     # Install packages related to theming

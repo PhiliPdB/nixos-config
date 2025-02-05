@@ -1,4 +1,4 @@
-{ config, lib, user, ... }:
+{ pkgs, config, lib, user, ... }:
 {
   imports = [
     ./plasma.nix
@@ -13,6 +13,21 @@
     services.xserver.enable = true;
 
     # Enable kde plasma by default
-    kde-plasma.enable = user.desktop == "plasma";
+    kde-plasma.enable = lib.mkDefault (user.desktop == "plasma");
+
+    # Setup sddm
+    services.displayManager.sddm = {
+      enable = true;
+      # TODO: Theme?
+    };
+
+    environment.systemPackages = [
+      # Set background of the breeze theme
+      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+        [General]
+        background=${user.wallpaper}
+      '')
+    ];
+    # TODO: Set user profile icon
   };
 }

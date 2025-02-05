@@ -13,6 +13,9 @@
         - [ ] Taskbar
     * [ ] Plasma-manager
     * [ ] SDDM Theming
+        - [x] Background
+        - [ ] Profile icon
+        - [ ] Theming?
 - [ ] Applications
     * [x] Office
     * [x] Gaming

@@ -27,6 +27,7 @@
         gpgKey = "4EC55FB707DC24C4";
 
         desktop = "plasma";
+        wallpaper = ./wallpapers/nyhavn-copenhagen.jpg;
       };
     in
     {
