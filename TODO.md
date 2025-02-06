@@ -6,7 +6,7 @@
     * [x] LSD command
     * [ ] Default theming
     * [x] Nix shell
-    * [ ] fzf
+    * [x] fzf
 - [ ] DE
     * [ ] KDE Theming
         - [ ] Colors

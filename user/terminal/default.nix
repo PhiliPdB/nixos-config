@@ -19,4 +19,7 @@
 
       venv = "source ./venv/bin/activate";
   };
+
+  # Enable fzf
+  programs.fzf.enable = true;
 }
