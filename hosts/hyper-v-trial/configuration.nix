@@ -76,9 +76,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user.name} = {
+  users.users.${user.username} = {
     isNormalUser = true;
-    description = "Philip";
+    description = user.name;
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
@@ -93,7 +93,7 @@
     ];
 
     users = {
-      ${user.name} = import ./home.nix;
+      ${user.username} = import ./home.nix;
     };
     # also pass the inputs to home-manager modules
     extraSpecialArgs = { inherit inputs user; };

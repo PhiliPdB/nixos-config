@@ -27,7 +27,11 @@
         [General]
         background=${user.wallpaper}
       '')
+      # Set user profile icon
+      (pkgs.runCommand "user-icons" {} ''
+        mkdir -p $out/share/sddm/faces
+        ln -s ${user.profileImage} $out/share/sddm/faces/${user.username}.face.icon
+      '')
     ];
-    # TODO: Set user profile icon
   };
 }

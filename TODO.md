@@ -6,6 +6,7 @@
     * [x] LSD command
     * [ ] Default theming
     * [x] Nix shell
+    * [ ] fzf
 - [ ] DE
     * [ ] KDE Theming
         - [ ] Colors
@@ -14,7 +15,7 @@
     * [ ] Plasma-manager
     * [ ] SDDM Theming
         - [x] Background
-        - [ ] Profile icon
+        - [x] Profile icon
         - [ ] Theming?
 - [ ] Applications
     * [x] Office

@@ -7,7 +7,7 @@
   config = lib.mkIf (user.desktop != null) {
     # Set user icon
     home.file = {
-      ".face.icon".source = ../dotfiles/face.icon;
+      ".face.icon".source = user.profileImage;
     };
   };
 }
