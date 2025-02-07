@@ -23,6 +23,16 @@
   office.enable = true;
   proton-apps.enable = true;
 
+  # Set plasma options
+  plasma = {
+    pinnedItems = [
+      "preferred://filemanager"
+      "preferred://browser"
+      "applications:steam.desktop"
+      "applications:code.desktop"
+    ];
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
