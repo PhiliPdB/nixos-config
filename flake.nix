@@ -18,7 +18,7 @@
     stylix.url = "github:danth/stylix/release-24.11";
   };
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, ... }@inputs:
     let
       user = {
         name = "Philip";
@@ -34,13 +34,19 @@
     in
     {
       nixosConfigurations = {
-        hyper-v-trial = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs user; };
-          modules = [
-            ./hosts/hyper-v-trial/configuration.nix
-            ./system
-          ];
-        };
+        hyper-v-trial = 
+        let 
+          system = "x86_64-linux";
+          pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs pkgs-unstable user; };
+            modules = [
+              ./hosts/hyper-v-trial/configuration.nix
+              ./system
+            ];
+          };
       };
 
       homeManagerModules.default = ./user;

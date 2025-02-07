@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, user, ... }:
+{ pkgs, pkgs-unstable, inputs, user, ... }:
 
 {
   imports = [
@@ -96,7 +96,7 @@
       ${user.username} = import ./home.nix;
     };
     # also pass the inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs user; };
+    extraSpecialArgs = { inherit inputs pkgs-unstable user; };
   };
 
   # Allow unfree packages
