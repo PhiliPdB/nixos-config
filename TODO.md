@@ -11,12 +11,13 @@
     * [ ] KDE Theming
         - [ ] Colors
         - [ ] Window styles?
-        - [ ] Taskbar
-    * [ ] Plasma-manager
-    * [ ] SDDM Theming
+        - [x] Taskbar
+    * [x] Plasma-manager
+    * [x] SDDM Theming
         - [x] Background
         - [x] Profile icon
-        - [ ] Theming?
+        - [x] Theming? No
+        - [ ] Icons
 - [ ] Applications
     * [x] Office
     * [x] Gaming
@@ -24,6 +25,7 @@
     * [ ] VSCode
     * [x] Proton apps
     * [ ] Docker
+    * [ ] Canon import photos?
 - [ ] Programming
     * [ ] Rust
     * [x] Nix

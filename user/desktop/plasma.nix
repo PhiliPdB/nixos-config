@@ -61,7 +61,18 @@
           height = 32;
 
           widgets = [
-            "org.kde.plasma.kickoff"
+            {
+              kickoff = {
+                icon = "start-here";
+                # TODO: Figure out hibernate button
+                # showButtonsFor = [
+                #   "hibernate"
+                #   "reboot"
+                #   "shutdown"
+                # ];
+                showActionButtonCaptions = false;
+              };
+            }
             {
               iconTasks = {
                 launchers = config.plasma.pinnedItems;
