@@ -22,10 +22,10 @@
     * [x] Office
     * [x] Gaming
     * [ ] Rawtherapee
-    * [ ] VSCode
+    * [x] VSCode
     * [x] Proton apps
     * [ ] Docker
-    * [ ] Canon import photos?
+    * [ ] Canon import photos? -> Rapid photo downloader?
 - [ ] Programming
     * [ ] Rust
     * [x] Nix
