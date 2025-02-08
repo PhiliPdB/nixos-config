@@ -10,7 +10,8 @@
 
     # Install packages related to theming
     environment.systemPackages = with pkgs; [
-      (callPackage ./icons/flatery.nix { colorVariants = [ "Blue" "Blue-Dark" ]; })
+      # (callPackage (themesPath + /icons/flatery.nix) { colorVariants = [ "Blue" "Blue-Dark" ]; })
+      papirus-icon-theme
     ];
   };
 }

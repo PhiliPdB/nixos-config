@@ -42,7 +42,7 @@
 
       workspace = {
         lookAndFeel = "org.kde.breezedark.desktop";
-        iconTheme = "Flatery-Blue-Dark";
+        iconTheme = "Papirus-Dark";
       };
 
       # Set virtual desktops

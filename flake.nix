@@ -31,6 +31,8 @@
         profileImage = ./user/dotfiles/profile.png;
         wallpaper = ./wallpapers/nyhavn-copenhagen.jpg;
       };
+
+      themesPath = ./themes;
     in
     {
       nixosConfigurations = {
@@ -44,7 +46,7 @@
         in
           nixpkgs.lib.nixosSystem {
             inherit system;
-            specialArgs = { inherit inputs pkgs-unstable user; };
+            specialArgs = { inherit inputs pkgs-unstable user themesPath; };
             modules = [
               ./hosts/hyper-v-trial/configuration.nix
               ./system
