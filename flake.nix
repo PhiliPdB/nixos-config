@@ -36,22 +36,38 @@
     in
     {
       nixosConfigurations = {
-        hyper-v-trial = 
-        let 
-          system = "x86_64-linux";
-          pkgs-unstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-          nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = { inherit inputs pkgs-unstable user themesPath; };
-            modules = [
-              ./hosts/hyper-v-trial/configuration.nix
-              ./system
-            ];
-          };
+        hyper-v-trial =
+          let
+            system = "x86_64-linux";
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              specialArgs = { inherit inputs pkgs-unstable user themesPath; };
+              modules = [
+                ./hosts/hyper-v-trial/configuration.nix
+                ./system
+              ];
+            };
+        workstation-trial =
+          let
+            system = "x86_64-linux";
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              specialArgs = { inherit inputs pkgs-unstable user themesPath; };
+              modules = [
+                ./hosts/workstation-trial/configuration.nix
+                ./system
+              ];
+            };
       };
 
       homeManagerModules.default = ./user;

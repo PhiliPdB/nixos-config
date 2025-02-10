@@ -59,6 +59,7 @@
           lengthMode = "fill";
           floating = true;
           height = 32;
+          screen = "all";
 
           widgets = [
             {
