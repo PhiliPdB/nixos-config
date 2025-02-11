@@ -87,7 +87,10 @@
   # Enable hardware graphics
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = false;
+  hardware.nvidia = {
+    open = false;
+    powerManagement.enable = true;
+  };
 
   # List services that you want to enable:
 
