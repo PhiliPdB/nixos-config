@@ -28,6 +28,7 @@
           type = with lib.types; listOf str;
 
           default = [
+            "steam"
             "org.kde.plasma.clipboard"
             "org.kde.plasma.brightness"
           ];

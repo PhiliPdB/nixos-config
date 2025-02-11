@@ -1,4 +1,4 @@
-{ inputs, user, pkgs-unstable, ... }:
+{ inputs, user, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -35,8 +35,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     pkgs-unstable.discord-canary
+    # Import photos from camera
+    rapid-photo-downloader
+    # Photo editing
+    pkgs-unstable.rawtherapee
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
