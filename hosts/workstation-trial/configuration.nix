@@ -46,8 +46,14 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Enable hardware graphics
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    open = false;
+    powerManagement.enable = true;
+  };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {
@@ -73,6 +79,7 @@
     extraSpecialArgs = { inherit inputs pkgs-unstable user; };
   };
 
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -83,16 +90,11 @@
   via.enable = true;
 
 
-  
-  # Enable hardware graphics
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    open = false;
-    powerManagement.enable = true;
-  };
-
   # List services that you want to enable:
+
+  # Enable Onedrive synchronisation service
+  services.onedrive.enable = true;
+
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
