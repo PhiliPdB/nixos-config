@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     curl
+    devenv
     git
     gparted
     htop

@@ -64,6 +64,8 @@
   };
   # Enable zsh as it is the default shell
   programs.zsh.enable = true;
+  # Enable direnv for the user
+  programs.direnv.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -88,6 +90,11 @@
   steam.enable = true;
   # Enable VIA
   via.enable = true;
+
+  # environment.systemPackages = with pkgs; [
+  #   wineWowPackages.stable
+  #   winetricks
+  # ];
 
 
   # List services that you want to enable:
