@@ -5,6 +5,7 @@
     ./applications
     ./desktop
 
+    ./docker.nix
     ./fonts.nix
     ./localization.nix
     ./nixos.nix
