@@ -96,6 +96,11 @@
           ];
         }
       ];
+
+      # Set shortcuts
+      shortcuts = {
+        "kwin"."Overview" = "Meta+Tab";
+      };
     };
   };
 }
