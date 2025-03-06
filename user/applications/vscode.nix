@@ -5,8 +5,9 @@
   #   enable = true;
   #   package = pkgs-unstable.vscode;
   # };
-  
+
   home.packages = with pkgs; [
     vscode
+    vscode-runner
   ];
 }
