@@ -100,6 +100,8 @@
       # Set shortcuts
       shortcuts = {
         "kwin"."Overview" = "Meta+Tab";
+        # Meta+I to open system settings
+        "services/systemsettings.desktop"."_launch" = ["Meta+I" "Tools"];
       };
     };
   };
