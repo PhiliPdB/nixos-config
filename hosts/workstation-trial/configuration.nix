@@ -20,9 +20,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Make sure we have a desktop environment
   desktop-environment.enable = user.desktop != null;
   kde-plasma.enable = user.desktop == "plasma";
