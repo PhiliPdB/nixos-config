@@ -1,0 +1,25 @@
+name: build-system
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        hostname:
+          - workstation-trial
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v31
+
+      - name: "Build ${{ matrix.hostname }} NixOS config"
+        run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
