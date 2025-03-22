@@ -1,18 +1,5 @@
-{ inputs, user, ... }:
+{ user, ... }:
 {
-  # Install updates weekly
-  system.autoUpgrade = {
-    enable = true;
-    dates = "weekly";
-    # Set flake path and arguments
-    flake = inputs.self.outPath;
-    flags = [
-      "--update-input" "nixpkgs"
-      "--no-write-lock-file"
-      "--print-build-logs"
-    ];
-  };
-
   # Enable garbage collection
   nix.gc = {
     automatic = true;

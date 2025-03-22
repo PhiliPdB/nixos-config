@@ -1,0 +1,19 @@
+name: update-flake-lock
+on:
+  workflow_dispatch: # Allow manual triggering
+  schedule:
+    - cron: '0 3 * * 1' # Run every monday
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CHeckout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v16
+      - name: Update flake.lock
+        id: update
+        uses: DeterminateSystems/update-flake-lock@v24
+      - name: Print PR number
+        run: echo "Pull request number is ${{ steps.update.outputs.pr_number }}"
