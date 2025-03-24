@@ -2,7 +2,7 @@ name: update-flake-lock
 on:
   workflow_dispatch: # Allow manual triggering
   schedule:
-    - cron: '0 3 * * 1' # Run every monday
+    - cron: '0 3 * * 6' # Run every saturday
 
 jobs:
   lockfile:
@@ -18,5 +18,8 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v24
         with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          pr-title: "Update flake.lock"
+          pr-reviewers: PhiliPdB
+
       - name: "Print PR number"
         run: echo "Pull request number is ${{ steps.update.outputs.pr_number }}"
