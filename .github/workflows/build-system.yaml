@@ -47,4 +47,4 @@ jobs:
           purge-primary-key: never
 
       - name: "Build ${{ matrix.hostname }} NixOS config 🛠️"
-        run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
+        run: nix run github:Mic92/nix-fast-build -- --skip-cached --no-nom --flake .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
