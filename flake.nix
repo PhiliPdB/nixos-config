@@ -33,16 +33,18 @@
       };
 
       themesPath = ./themes;
+
+      mkPkgsUnstable = system: import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
         hyper-v-trial =
           let
             system = "x86_64-linux";
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
+            pkgs-unstable = mkPkgsUnstable system;
           in
             nixpkgs.lib.nixosSystem {
               inherit system;
@@ -55,10 +57,7 @@
         workstation-trial =
           let
             system = "x86_64-linux";
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
+            pkgs-unstable = mkPkgsUnstable system;
           in
             nixpkgs.lib.nixosSystem {
               inherit system;
