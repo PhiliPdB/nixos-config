@@ -7,9 +7,29 @@
   config = lib.mkIf config.zsh.enable {
     programs.zsh = {
       enable = true;
+
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+
+      history =
+        let
+          hist_size = 10000;
+        in {
+          size = hist_size;
+          save = hist_size;
+          append = true;
+          share = true;
+
+          # TODO: Enable these options once home-manager is updated
+          # saveNoDups = true;
+          # findNoDups = true;
+          ignoreAllDups = true;
+          ignoreDups = true;
+          ignoreSpace = true;
+
+          expireDuplicatesFirst = true;
+        };
 
       plugins = [
         {
