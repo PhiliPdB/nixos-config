@@ -1,14 +1,13 @@
 { pkgs, lib, ... }: {
   imports = [
+    ./tmux.nix
     ./zsh.nix
   ];
 
   zsh.enable = lib.mkDefault true;
 
   # Install lsd as an ls alternative
-  home.packages = [
-    pkgs.lsd
-  ];
+  programs.lsd.enable = true;
 
   # Set default shell aliases
   home.shellAliases = {
