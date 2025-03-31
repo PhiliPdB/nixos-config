@@ -43,6 +43,12 @@
     pkgs-unstable.rawtherapee
   ];
 
+  # Enable btop
+  programs.btop = {
+    enable = true;
+    package = (pkgs.btop.override { cudaSupport = true; });
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

@@ -1,6 +1,4 @@
 { pkgs, ... }: {
-  # stylix.targets.tmux.enable = false;
-
   programs.tmux =
     let
       tokyo-night-tmux = pkgs.tmuxPlugins.mkTmuxPlugin {

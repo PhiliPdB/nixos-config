@@ -55,10 +55,6 @@
     open = false;
     powerManagement.enable = true;
   };
-  # Enable btop with cuda support
-  environment.systemPackages = with pkgs; [
-    (btop.override { cudaSupport = true; })
-  ];
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
