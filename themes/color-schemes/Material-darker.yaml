@@ -1,0 +1,21 @@
+system: base16
+name: "Material Darker"
+author: "Philip de Bruin"
+variant: "Dark"
+palette:
+  base00: "#1A1A1A" # Default background
+  base01: "#212121" # Lighter background (status bars)
+  base02: "#393939" # Selection background
+  base03: "#4A4A4A" # Comments, Invisibles, Line Highlighting
+  base04: "#616161" # Dark foreground (status bars)
+  base05: "#EEFFFF" # Default foreground (Caret, Delimiters, Operators)
+  base06: "#C5C8C6" # White, Light foreground
+  base07: "#FFFFFF" # Bright White, The lightest foreground
+  base08: "#CC342B" # Red
+  base09: "#CC832B" # Orange
+  base0A: "#FBA922" # Yellow
+  base0B: "#198844" # Green
+  base0C: "#2BC4CC" # Cyan
+  base0D: "#3971ED" # Blue
+  base0E: "#A36AC7" # Purple
+  base0F: "#CC342B" # Deprecated

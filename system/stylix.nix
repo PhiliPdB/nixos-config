@@ -1,15 +1,12 @@
-{ pkgs, user, ... }:
-let
-  color-scheme = "humanoid-dark"; # TODO: Move to user object
-in
-{
+{ pkgs, user, themesPath, ... }: {
   stylix = {
     enable = true;
+    # autoEnable = false;
 
     image = user.wallpaper;
 
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${color-scheme}.yaml";
+    base16Scheme = themesPath + /color-schemes/Material-darker.yaml;
 
     fonts = {
       monospace = {
