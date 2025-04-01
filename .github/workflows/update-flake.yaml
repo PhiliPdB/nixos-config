@@ -18,8 +18,14 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v24
         with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          commit-msg: "Update flake.lock"
           pr-title: "Update flake.lock"
-          pr-reviewers: PhiliPdB
+          pr-body: |
+            Automated changes by the [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock) GitHub Action.
+
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
 
       - name: "Print PR number"
         run: echo "Pull request number is ${{ steps.update.outputs.pr_number }}"
