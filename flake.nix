@@ -45,10 +45,15 @@
           let
             system = "x86_64-linux";
             pkgs-unstable = mkPkgsUnstable system;
+
+            meta = {
+              inherit themesPath;
+              systemName = "hyper-v-trial";
+            };
           in
             nixpkgs.lib.nixosSystem {
               inherit system;
-              specialArgs = { inherit inputs pkgs-unstable user themesPath; };
+              specialArgs = { inherit inputs pkgs-unstable user meta; };
               modules = [
                 ./hosts/hyper-v-trial/configuration.nix
                 ./system
@@ -58,10 +63,15 @@
           let
             system = "x86_64-linux";
             pkgs-unstable = mkPkgsUnstable system;
+
+            meta = {
+              inherit themesPath;
+              systemName = "workstation-trial";
+            };
           in
             nixpkgs.lib.nixosSystem {
               inherit system;
-              specialArgs = { inherit inputs pkgs-unstable user themesPath; };
+              specialArgs = { inherit inputs pkgs-unstable user meta; };
               modules = [
                 ./hosts/workstation-trial/configuration.nix
                 ./system

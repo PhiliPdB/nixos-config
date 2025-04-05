@@ -9,7 +9,7 @@
     extraLocaleSettings = {
       LC_COLLATE = "C.UTF-8";
       LC_NUMERIC = "C.UTF-8";
-      
+
       LC_TIME = "nl_NL.UTF-8";
       LC_MONETARY = "nl_NL.UTF-8";
       LC_PAPER = "nl_NL.UTF-8";

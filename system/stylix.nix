@@ -1,4 +1,4 @@
-{ pkgs, user, themesPath, ... }: {
+{ pkgs, user, meta, ... }: {
   stylix = {
     enable = true;
     # autoEnable = false;
@@ -6,7 +6,7 @@
     image = user.wallpaper;
 
     polarity = "dark";
-    base16Scheme = themesPath + /color-schemes/Material-darker.yaml;
+    base16Scheme = meta.themesPath + /color-schemes/Material-darker.yaml;
 
     fonts = {
       monospace = {

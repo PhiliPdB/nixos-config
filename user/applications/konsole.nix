@@ -1,10 +1,10 @@
-{ themesPath, ... }: {
+{ meta, ... }: {
   programs.konsole = {
     enable = true;
 
     customColorSchemes = {
-      "Oxygen" = themesPath + /color-schemes/Oxygen.colorscheme;
-      "Material Darker" = themesPath + /color-schemes/Material-darker.colorscheme;
+      "Oxygen" = meta.themesPath + /color-schemes/Oxygen.colorscheme;
+      "Material Darker" = meta.themesPath + /color-schemes/Material-darker.colorscheme;
     };
 
     defaultProfile = "CustomProfile";
