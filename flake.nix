@@ -29,7 +29,10 @@
 
         desktop = "plasma";
         profileImage = ./user/dotfiles/profile.png;
-        wallpaper = ./wallpapers/nyhavn-copenhagen.jpg;
+        wallpaper = {
+          desktop    = ./wallpapers/nyhavn-copenhagen.jpg;
+          lockscreen = ./wallpapers/partial-solar-eclipse.jpg;
+        };
       };
 
       themesPath = ./themes;

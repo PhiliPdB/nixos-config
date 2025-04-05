@@ -42,6 +42,7 @@
       enable = true;
 
       workspace = {
+        wallpaper = user.wallpaper.desktop;
         lookAndFeel = "org.kde.breezedark.desktop";
         iconTheme = "Papirus-Dark";
       };
@@ -102,6 +103,13 @@
         "kwin"."Overview" = "Meta+Tab";
         # Meta+I to open system settings
         "services/systemsettings.desktop"."_launch" = ["Meta+I" "Tools"];
+      };
+
+      kscreenlocker = {
+        appearance.wallpaper = user.wallpaper.lockscreen;
+
+        timeout = lib.mkDefault 10;
+        passwordRequiredDelay = lib.mkDefault 5;
       };
     };
   };

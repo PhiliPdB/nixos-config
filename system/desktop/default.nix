@@ -25,7 +25,7 @@
       # Set background of the breeze theme
       (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
         [General]
-        background=${user.wallpaper}
+        background=${user.wallpaper.lockscreen}
       '')
       # Set user profile icon
       (pkgs.runCommand "user-icons" {} ''

@@ -3,7 +3,7 @@
     enable = true;
     # autoEnable = false;
 
-    image = user.wallpaper;
+    image = user.wallpaper.desktop;
 
     polarity = "dark";
     base16Scheme = meta.themesPath + /color-schemes/Material-darker.yaml;
