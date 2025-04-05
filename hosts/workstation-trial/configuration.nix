@@ -98,12 +98,14 @@
   #   winetricks
   # ];
 
+  # Enable nix-ld for csharp development
+  programs.nix-ld.enable = true;
+
 
   # List services that you want to enable:
 
   # Enable Onedrive synchronisation service
   services.onedrive.enable = true;
-
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
