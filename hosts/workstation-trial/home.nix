@@ -36,7 +36,11 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # Chat apps
     pkgs-unstable.discord-canary
+    pkgs-unstable.signal-desktop
+
+
     # Import photos from camera
     rapid-photo-downloader
     # Photo editing
