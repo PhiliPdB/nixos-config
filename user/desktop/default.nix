@@ -1,6 +1,7 @@
 { lib, user, ... }:
 {
   imports = [
+    ./gtk.nix
     ./plasma.nix
   ];
 
