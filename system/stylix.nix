@@ -23,5 +23,11 @@
         desktop = 10;
       };
     };
+
+    cursor = {
+      name = "DMZ-White";
+      size = 32;
+      package = pkgs.vanilla-dmz;
+    };
   };
 }
