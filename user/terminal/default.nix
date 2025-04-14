@@ -16,9 +16,22 @@
       la = "ls -A";
       lla = "ls -alF";
 
+      cat = "bat";
+
       venv = "source ./venv/bin/activate";
   };
 
   # Enable fzf
   programs.fzf.enable = true;
+  # Enable zoxide
+  programs.zoxide.enable = true;
+
+  # Enable bat
+  programs.bat = {
+    enable = true;
+
+    config = {
+      style = "numbers,changes";
+    };
+  };
 }

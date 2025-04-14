@@ -18,22 +18,39 @@
         - [x] Profile icon
         - [x] Theming? No
         - [ ] Icons
-- [ ] Applications
+- [x] Applications
     * [x] Office
     * [x] Gaming
-    * [ ] Rawtherapee
+    * [x] Rawtherapee
     * [x] VSCode
     * [x] Proton apps
-    * [ ] Docker
-    * [ ] Canon import photos? -> Rapid photo downloader?
-- [ ] Programming
-    * [ ] Rust
+    * [x] Docker
+    * [x] Canon import photos? -> Rapid photo downloader?
+- [x] Programming
+    * [x] Rust
     * [x] Nix
-    * [ ] Dotnet?
+    * [x] Dotnet?
 - [ ] NixOS stuff
-    * [ ] Standalone home-manager
+    * [ ] Standalone home-manager?
     * [x] Auto cleanup and update
     * [x] username as variable in config
 - [ ] Dotfiles management
 - [x] Git
     * [x] gpg signing
+
+## Before switching to main os
+- [x] Figure out Onedrive
+- [x] Photo importing from camera (probably rapid photo)
+- [ ] Office work?
+- [x] Try some Python project
+- [ ] Fix monitors in SDDM?
+- [ ] Remember numlock state?
+- [x] Auto upgrade something that needs looking at?
+- [ ] Gnome theme mismatch with qt?
+- [x] Firefox file explorer
+- [x] Discord default all desktops
+- [x] Advent of code repo with shell
+- [x] Unify colors
+    * [x] Coloring of Konsole
+- [x] Tmux theme
+- [ ] Tmux plugins??
