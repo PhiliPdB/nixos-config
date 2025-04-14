@@ -24,7 +24,10 @@
   # Enable fzf
   programs.fzf.enable = true;
   # Enable zoxide
-  programs.zoxide.enable = true;
+  programs.zoxide = {
+    enable = true;
+    options = [ "--cmd cd" ];
+  };
 
   # Enable bat
   programs.bat = {
