@@ -7,17 +7,17 @@ Feel free to open a discussion or issue on how I could improve certain parts.
 
 ## Project structure
 The folder structure of the project is as follows:
-```bash
-  .
-├──   hosts/          <- Machine specific configuration
-│   └──   <machine-name>/
-│       ├──  configuration.nix
-│       ├──  hardware-configuration.nix
-│       └──  home.nix
-├──   system/         <- NixOS configuration modules
-├──   themes/         <- Extra theming configuration and definitions
-├──   user/           <- Home manager configuration modules
-└──   wallpapers/     <- Provided wallpapers
+```
+.
+├── hosts/          <- Machine specific configuration
+│   └── <machine-name>/
+│       ├── configuration.nix
+│       ├── hardware-configuration.nix
+│       └── home.nix
+├── system/         <- NixOS configuration modules
+├── themes/         <- Extra theming configuration and definitions
+├── user/           <- Home manager configuration modules
+└── wallpapers/     <- Provided wallpapers
 ```
 
 
