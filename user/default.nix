@@ -2,8 +2,8 @@
   imports = [
     ./applications
     ./desktop
+    ./development
     ./terminal
-    ./programming/nix.nix
 
     ./git.nix
     ./gpg.nix

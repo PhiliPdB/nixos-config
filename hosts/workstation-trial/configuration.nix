@@ -66,8 +66,7 @@
   };
   # Enable zsh as it is the default shell
   programs.zsh.enable = true;
-  # Enable direnv for the user
-  programs.direnv.enable = true;
+
 
   home-manager = {
     useGlobalPkgs = true;
