@@ -92,10 +92,11 @@
   # Enable VIA
   via.enable = true;
 
-  # environment.systemPackages = with pkgs; [
-  #   wineWowPackages.stable
-  #   winetricks
-  # ];
+  environment.systemPackages = with pkgs; [
+    kdePackages.kamera # For camera communication in KDE Plasma
+    # wineWowPackages.stable
+    # winetricks
+  ];
 
   # Enable nix-ld for csharp development
   programs.nix-ld.enable = true;

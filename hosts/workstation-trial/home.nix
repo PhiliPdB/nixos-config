@@ -41,6 +41,7 @@
     pkgs-unstable.signal-desktop
 
 
+    digikam
     # Import photos from camera
     rapid-photo-downloader
     # Photo editing
