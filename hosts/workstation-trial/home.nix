@@ -38,6 +38,7 @@
   home.packages = with pkgs; [
     # Chat apps
     pkgs-unstable.discord-canary
+    pkgs-unstable.element-desktop
     pkgs-unstable.signal-desktop
 
 
