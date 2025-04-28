@@ -40,9 +40,15 @@
 
       themesPath = ./themes;
 
-      mkPkgsUnstable = system: import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
+      unstable-overlay = {
+        nixpkgs.overlays = [
+          (final: prev: {
+            unstable = import nixpkgs-unstable {
+              system = final.system;
+              config.allowUnfree = true;
+            };
+          })
+        ];
       };
     in
     {
@@ -50,7 +56,6 @@
         hyper-v-trial =
           let
             system = "x86_64-linux";
-            pkgs-unstable = mkPkgsUnstable system;
 
             meta = {
               inherit themesPath;
@@ -59,8 +64,9 @@
           in
             nixpkgs.lib.nixosSystem {
               inherit system;
-              specialArgs = { inherit inputs pkgs-unstable user meta; };
+              specialArgs = { inherit inputs user meta; };
               modules = [
+                unstable-overlay
                 ./hosts/hyper-v-trial/configuration.nix
                 ./system
               ];
@@ -68,7 +74,6 @@
         workstation-trial =
           let
             system = "x86_64-linux";
-            pkgs-unstable = mkPkgsUnstable system;
 
             meta = {
               inherit themesPath;
@@ -77,8 +82,9 @@
           in
             nixpkgs.lib.nixosSystem {
               inherit system;
-              specialArgs = { inherit inputs pkgs-unstable user meta; };
+              specialArgs = { inherit inputs user meta; };
               modules = [
+                unstable-overlay
                 ./hosts/workstation-trial/configuration.nix
                 ./system
               ];

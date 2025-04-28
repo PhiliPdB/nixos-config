@@ -1,4 +1,4 @@
-{ inputs, user, pkgs, pkgs-unstable, ... }:
+{ inputs, user, pkgs, ... }:
 
 {
   imports = [
@@ -37,16 +37,16 @@
   # environment.
   home.packages = with pkgs; [
     # Chat apps
-    pkgs-unstable.discord-canary
-    pkgs-unstable.element-desktop
-    pkgs-unstable.signal-desktop
+    unstable.discord-canary
+    unstable.element-desktop
+    unstable.signal-desktop
 
 
     digikam
     # Import photos from camera
     rapid-photo-downloader
     # Photo editing
-    pkgs-unstable.rawtherapee
+    unstable.rawtherapee
   ];
 
   # Set btop package to include CUDA
