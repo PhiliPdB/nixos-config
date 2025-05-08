@@ -1,4 +1,4 @@
-{ user, ... }:
+{ pkgs, user, ... }:
 {
   # Enable garbage collection
   nix.gc = {
@@ -23,4 +23,15 @@
       "nixpkgs-python.cachix.org-1:hxjI7pFxTyuTHn2NkvWCrAUcNZLNS3ZAvfYNuYifcEU="
     ];
   };
+
+  # Enable nh
+  programs.nh = {
+    enable = true;
+    flake = "/home/${user.username}/nixos-config";
+  };
+
+  environment.systemPackages = with pkgs; [
+    # Expose nix-output-monitor for a nicer build output
+    nix-output-monitor
+  ];
 }
