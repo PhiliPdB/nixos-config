@@ -15,7 +15,7 @@ jobs:
 
       - name: "Update flake.lock"
         id: update
-        uses: DeterminateSystems/update-flake-lock@v24
+        uses: DeterminateSystems/update-flake-lock@v25
         with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           commit-msg: "Update flake.lock"
