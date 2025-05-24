@@ -15,5 +15,12 @@
   # Enable gh by default
   programs.gh = {
     enable = lib.mkDefault true;
+
+    settings = {
+      aliases = {
+        co = "pr checkout";
+        pv = "pr view";
+      };
+    };
   };
 }
