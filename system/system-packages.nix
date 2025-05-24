@@ -7,6 +7,7 @@
     gparted
     htop
     neofetch
+    ripgrep
     sl
     wget
   ];
