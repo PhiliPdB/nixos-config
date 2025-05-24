@@ -1,8 +1,8 @@
-{ user, ... }:
+{ lib, user, ... }:
 {
   programs.git = {
     enable = true;
-    
+
     userName = user.githubName;
     userEmail = user.email;
 
@@ -10,5 +10,10 @@
       key = user.gpgKey;
       signByDefault = true;
     };
+  };
+
+  # Enable gh by default
+  programs.gh = {
+    enable = lib.mkDefault true;
   };
 }
