@@ -7,7 +7,13 @@
   zsh.enable = lib.mkDefault true;
 
   # Install lsd as an ls alternative
-  programs.lsd.enable = true;
+  programs.lsd = {
+    enable = true;
+    # Don't enable integration
+    enableBashIntegration = false;
+    enableZshIntegration = false;
+    enableFishIntegration = false;
+  };
 
   # Set default shell aliases
   home.shellAliases = {

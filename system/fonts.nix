@@ -3,7 +3,8 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
-    (nerdfonts.override { fonts = [ "FiraCode" "DejaVuSansMono" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.dejavu-sans-mono
     noto-fonts
     noto-fonts-emoji
     open-sans
