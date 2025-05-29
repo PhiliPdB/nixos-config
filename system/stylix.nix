@@ -23,9 +23,9 @@
     };
 
     cursor = {
-      name = "DMZ-White";
+      name = "Bibata-Original-Ice";
       size = 32;
-      package = pkgs.vanilla-dmz;
+      package = pkgs.bibata-cursors;
     };
   };
 }
