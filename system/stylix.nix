@@ -1,9 +1,7 @@
-{ pkgs, user, meta, ... }: {
+{ pkgs, meta, ... }: {
   stylix = {
     enable = true;
     # autoEnable = false;
-
-    image = user.wallpaper.desktop;
 
     polarity = "dark";
     base16Scheme = meta.themesPath + /color-schemes/Material-darker.yaml;
