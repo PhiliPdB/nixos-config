@@ -4,7 +4,7 @@
 
     theme = lib.mkForce {
       name = "Breeze-Dark";
-      package = pkgs.breeze-gtk;
+      package = pkgs.kdePackages.breeze-gtk;
     };
 
     iconTheme = {
