@@ -7,6 +7,12 @@
       package = pkgs.kdePackages.breeze-gtk;
     };
 
+    cursorTheme = {
+      name = "Bibata-Original-Ice";
+      size = 28;
+      package = pkgs.bibata-cursors;
+    };
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
