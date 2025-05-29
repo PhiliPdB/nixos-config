@@ -7,7 +7,7 @@
       enable = true;
       dates = "weekly";
       # Filter stuff older than 30 days
-      flags = [ "-af" "--filter 'until=720h'" ];
+      flags = [ "-af" "--filter until=720h" ];
     };
   };
 }
