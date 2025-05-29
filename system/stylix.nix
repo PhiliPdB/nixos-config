@@ -24,7 +24,7 @@
 
     cursor = {
       name = "Bibata-Original-Ice";
-      size = 32;
+      size = 28;
       package = pkgs.bibata-cursors;
     };
   };
