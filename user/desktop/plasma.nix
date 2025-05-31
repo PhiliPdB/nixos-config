@@ -1,4 +1,9 @@
-{ config, lib, user, ... }:
+{ config, lib, pkgs, user, meta, ... }:
+let
+  colorThemeName = "MaterialDarker";
+  # TODO: Generate from stylix?!
+  colorTheme = builtins.readFile (meta.themesPath + "/color-schemes/${colorThemeName}.colors");
+in
 {
   options = {
     plasma = {
@@ -38,6 +43,14 @@
   };
 
   config = lib.mkIf (user.desktop == "plasma") {
+    # Disable stylix theming for KDE Plasma
+    stylix.targets.kde.enable = false;
+
+    home.packages = [
+      # Write color scheme
+      (pkgs.writeTextDir "share/color-schemes/${colorThemeName}.colors" colorTheme)
+    ];
+
     programs.plasma = {
       enable = true;
 
@@ -45,6 +58,7 @@
         wallpaper = user.wallpaper.desktop;
         lookAndFeel = "org.kde.breezedark.desktop";
         iconTheme = "Papirus-Dark";
+        colorScheme = "MaterialDarker";
       };
 
       # Set virtual desktops
