@@ -1,7 +1,13 @@
 { ... }: {
   programs.fzf = {
     enable = true;
-    tmux.enableShellIntegration = true;
+
+    tmux = {
+      enableShellIntegration = true;
+      shellIntegrationOptions = [
+        "-p 80,60"
+      ];
+    };
 
     # Options for fzf file finder (on Ctrl+T)
     fileWidgetOptions = [
