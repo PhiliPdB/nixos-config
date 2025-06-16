@@ -1,5 +1,6 @@
 { lib, ... }: {
   imports = [
+    ./fzf.nix
     ./tmux.nix
     ./zsh.nix
   ];
@@ -27,8 +28,6 @@
       venv = "source ./venv/bin/activate";
   };
 
-  # Enable fzf
-  programs.fzf.enable = true;
   # Enable zoxide
   programs.zoxide = {
     enable = true;
