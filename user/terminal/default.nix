@@ -1,5 +1,6 @@
 { lib, ... }: {
   imports = [
+    ./bat.nix
     ./fzf.nix
     ./tmux.nix
     ./zsh.nix
@@ -32,14 +33,5 @@
   programs.zoxide = {
     enable = true;
     options = [ "--cmd cd" ];
-  };
-
-  # Enable bat
-  programs.bat = {
-    enable = true;
-
-    config = {
-      style = "numbers,changes";
-    };
   };
 }
