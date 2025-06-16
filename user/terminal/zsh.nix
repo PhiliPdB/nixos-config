@@ -7,6 +7,7 @@
   config = lib.mkIf config.zsh.enable {
     programs.zsh = {
       enable = true;
+      dotDir = ".config/zsh";
 
       enableCompletion = true;
       autosuggestion.enable = true;
