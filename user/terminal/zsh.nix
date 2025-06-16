@@ -21,9 +21,8 @@
           append = true;
           share = true;
 
-          # TODO: Enable these options once home-manager is updated
-          # saveNoDups = true;
-          # findNoDups = true;
+          saveNoDups = true;
+          findNoDups = true;
           ignoreAllDups = true;
           ignoreDups = true;
           ignoreSpace = true;
