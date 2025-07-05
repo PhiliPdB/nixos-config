@@ -3,6 +3,17 @@ let
   colorThemeName = "MaterialDarker";
   # TODO: Generate from stylix?!
   colorTheme = builtins.readFile (meta.themesPath + "/color-schemes/${colorThemeName}.colors");
+
+  wallpaperPackage = pkgs.runCommandLocal "wallpaper-pack"
+    {
+      wallpaper = user.wallpaper.desktop;
+      lockscreen = user.wallpaper.lockscreen;
+    }
+    ''
+      mkdir -p $out/share/wallpapers
+      cp $wallpaper $out/share/wallpapers/desktop.jpg
+      cp $lockscreen $out/share/wallpapers/lockscreen.jpg
+    '';
 in
 {
   options = {
@@ -49,13 +60,15 @@ in
     home.packages = [
       # Write color scheme
       (pkgs.writeTextDir "share/color-schemes/${colorThemeName}.colors" colorTheme)
+      # Wallpaper package
+      wallpaperPackage
     ];
 
     programs.plasma = {
       enable = true;
 
       workspace = {
-        wallpaper = user.wallpaper.desktop;
+        wallpaper = "${wallpaperPackage}/share/wallpapers/desktop.jpg";
         lookAndFeel = "org.kde.breezedark.desktop";
         iconTheme = "Papirus-Dark";
         colorScheme = "MaterialDarker";
@@ -120,7 +133,7 @@ in
       };
 
       kscreenlocker = {
-        appearance.wallpaper = user.wallpaper.lockscreen;
+        appearance.wallpaper = "${wallpaperPackage}/share/wallpapers/lockscreen.jpg";
 
         timeout = lib.mkDefault 10;
         passwordRequiredDelay = lib.mkDefault 5;
