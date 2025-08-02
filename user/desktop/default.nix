@@ -2,7 +2,6 @@
 {
   imports = [
     ./gtk.nix
-    ./qt.nix
 
     ./plasma.nix
   ];
