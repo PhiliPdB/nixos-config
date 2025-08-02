@@ -96,6 +96,9 @@
     kdePackages.kamera # For camera communication in KDE Plasma
     # wineWowPackages.stable
     # winetricks
+
+    # GUI for the onedrive client
+    onedrivegui
   ];
 
   # Enable nix-ld for csharp development
@@ -105,6 +108,7 @@
   # List services that you want to enable:
 
   # Enable Onedrive synchronisation service
+  # TODO: With the GUI is this still needed?
   services.onedrive.enable = true;
 
   # Enable the OpenSSH daemon.
