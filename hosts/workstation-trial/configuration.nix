@@ -99,6 +99,9 @@
 
     # GUI for the onedrive client
     onedrivegui
+
+    # Add gparted for visual partition management
+    gparted
   ];
 
   # Enable nix-ld for csharp development
