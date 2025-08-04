@@ -10,6 +10,12 @@
       key = user.gpgKey;
       signByDefault = true;
     };
+
+    aliases = {
+      r = "rebase";
+      rc = "rebase --continue";
+      ri = "rebase --interactive";
+    };
   };
 
   # Enable gh by default
