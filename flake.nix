@@ -33,7 +33,7 @@
         desktop = "plasma";
         profileImage = ./user/dotfiles/profile.png;
         wallpaper = {
-          desktop    = ./wallpapers/nyhavn-copenhagen.jpg;
+          desktop    = ./wallpapers/ribblehead-station.jpg;
           lockscreen = ./wallpapers/partial-solar-eclipse.jpg;
         };
       };
