@@ -45,8 +45,9 @@ in
 
           default = [
             "steam"
-            "org.kde.plasma.clipboard"
             "org.kde.plasma.brightness"
+            "org.kde.plasma.clipboard"
+            "org.kde.plasma.notifications"
           ];
         };
       };
