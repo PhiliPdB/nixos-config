@@ -21,7 +21,7 @@
 
     # Install proton
     environment.systemPackages = with pkgs; [
-      protonup
+      protonup-qt
     ];
 
     environment.sessionVariables = {
