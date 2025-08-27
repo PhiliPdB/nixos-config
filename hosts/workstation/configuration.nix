@@ -85,6 +85,8 @@
   steam.enable = true;
   # Enable VIA
   via.enable = true;
+  # Enable winapps for MS Office
+  winapps.enable = true;
 
   environment.systemPackages = with pkgs; [
     kdePackages.kamera # For camera communication in KDE Plasma

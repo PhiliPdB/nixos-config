@@ -19,6 +19,12 @@
 
     # General theming
     stylix.url = "github:nix-community/stylix/release-25.05";
+
+    # Run windows apps in Docker
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, ... }@inputs:

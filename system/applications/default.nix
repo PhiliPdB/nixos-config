@@ -5,5 +5,6 @@
     ./steam.nix
     ./via.nix
     ./vim.nix
+    ./winapps.nix
   ];
 }
