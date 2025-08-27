@@ -71,6 +71,24 @@
                 ./system
               ];
             };
+        workstation =
+          let
+            system = "x86_64-linux";
+
+            meta = {
+              inherit themesPath;
+              systemName = "workstation";
+            };
+          in
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              specialArgs = { inherit inputs user meta; };
+              modules = [
+                unstable-overlay
+                ./hosts/workstation/configuration.nix
+                ./system
+              ];
+            };
         workstation-trial =
           let
             system = "x86_64-linux";
