@@ -98,7 +98,13 @@
 
     # Add gparted for visual partition management
     gparted
+
+    # Oversteer for steering wheel management
+    oversteer
   ];
+
+  # Add oversteer to udev
+  services.udev.packages = with pkgs; [ oversteer ];
 
   # Enable nix-ld for csharp development
   programs.nix-ld.enable = true;
