@@ -59,24 +59,6 @@
     in
     {
       nixosConfigurations = {
-        hyper-v-trial =
-          let
-            system = "x86_64-linux";
-
-            meta = {
-              inherit themesPath;
-              systemName = "hyper-v-trial";
-            };
-          in
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              specialArgs = { inherit inputs user meta; };
-              modules = [
-                unstable-overlay
-                ./hosts/hyper-v-trial/configuration.nix
-                ./system
-              ];
-            };
         workstation =
           let
             system = "x86_64-linux";
