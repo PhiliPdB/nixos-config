@@ -47,6 +47,9 @@
     rapid-photo-downloader
     # Photo editing
     unstable.rawtherapee
+
+    # VLC Media Player
+    vlc
   ];
 
   # Set btop package to include CUDA
