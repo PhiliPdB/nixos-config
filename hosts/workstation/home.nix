@@ -41,14 +41,15 @@
     unstable.element-desktop
     unstable.signal-desktop
 
-
+    # Photo management
     digikam
     # Import photos from camera
     rapid-photo-downloader
     # Photo editing
     unstable.rawtherapee
 
-    # VLC Media Player
+    # Uncategorized
+    obsidian
     vlc
   ];
 
