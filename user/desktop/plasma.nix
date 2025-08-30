@@ -95,12 +95,6 @@ in
             {
               kickoff = {
                 icon = "start-here";
-                # TODO: Figure out hibernate button
-                # showButtonsFor = [
-                #   "hibernate"
-                #   "reboot"
-                #   "shutdown"
-                # ];
                 showActionButtonCaptions = false;
               };
             }

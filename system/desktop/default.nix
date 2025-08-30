@@ -18,7 +18,6 @@
     # Setup sddm
     services.displayManager.sddm = {
       enable = true;
-      # TODO: Theme?
     };
 
     environment.systemPackages = [

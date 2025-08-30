@@ -90,8 +90,6 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.kamera # For camera communication in KDE Plasma
-    # wineWowPackages.stable
-    # winetricks
 
     # GUI for the onedrive client
     onedrivegui
