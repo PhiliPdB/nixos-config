@@ -55,7 +55,7 @@
   users.users.${user.username} = {
     isNormalUser = true;
     description = user.name;
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "podman" "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
   # Enable zsh as it is the default shell
