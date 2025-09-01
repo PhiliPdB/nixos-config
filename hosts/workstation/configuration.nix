@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, user, meta, ... }:
-
+{ lib, config, pkgs, inputs, user, meta, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -48,15 +47,19 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [
-      (if user.desktop == "plasma" then inputs.plasma-manager.homeManagerModules.plasma-manager else {})
+    sharedModules = lib.mkIf (config.cfg.desktop.manager == "plasma") [
+      inputs.plasma-manager.homeManagerModules.plasma-manager
     ];
 
     users = {
       ${user.username} = import ./home.nix;
     };
     # also pass the inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs user meta; };
+    extraSpecialArgs = {
+      inherit inputs user meta;
+      # Share custom system config
+      sysCfg = config.cfg;
+    };
   };
 
 

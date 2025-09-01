@@ -36,7 +36,6 @@
         email = "phlpdbrn@gmail.com";
         gpgKey = "4EC55FB707DC24C4";
 
-        desktop = "plasma";
         profileImage = ./user/dotfiles/profile.png;
         wallpaper = {
           desktop    = ./wallpapers/ribblehead-station.jpg;

@@ -24,7 +24,7 @@
   proton-apps.enable = true;
 
   # Set plasma options
-  plasma = {
+  cfg.plasma = {
     pinnedItems = [
       "preferred://filemanager"
       "preferred://browser"

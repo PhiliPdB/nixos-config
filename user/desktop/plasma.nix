@@ -1,5 +1,7 @@
-{ config, lib, pkgs, user, meta, ... }:
+{ config, lib, pkgs, sysCfg, user, meta, ... }:
 let
+  cfg = config.cfg.plasma;
+
   colorThemeName = "MaterialDarker";
   # TODO: Generate from stylix?!
   colorTheme = builtins.readFile (meta.themesPath + "/color-schemes/${colorThemeName}.colors");
@@ -16,45 +18,43 @@ let
     '';
 in
 {
-  options = {
-    plasma = {
-      pinnedItems = lib.mkOption {
-        description = "List of programs to pin to the taskbar";
+  options.cfg.plasma = {
+    pinnedItems = lib.mkOption {
+      description = "List of programs to pin to the taskbar";
+      type = with lib.types; listOf str;
+
+      default = [
+        "preferred://filemanager"
+        "preferred://browser"
+        "applications:code.desktop"
+      ];
+    };
+
+    systemTray = {
+      itemsShown = lib.mkOption {
+        description = "List of items to show on the systemtray";
         type = with lib.types; listOf str;
 
         default = [
-          "preferred://filemanager"
-          "preferred://browser"
-          "applications:code.desktop"
+          "org.kde.plasma.volume"
+          "org.kde.plasma.networkmanagement"
         ];
       };
+      itemsHidden = lib.mkOption {
+        description = "List of items to hide from the systemtray";
+        type = with lib.types; listOf str;
 
-      systemTray = {
-        itemsShown = lib.mkOption {
-          description = "List of items to show on the systemtray";
-          type = with lib.types; listOf str;
-
-          default = [
-            "org.kde.plasma.volume"
-            "org.kde.plasma.networkmanagement"
-          ];
-        };
-        itemsHidden = lib.mkOption {
-          description = "List of items to hide from the systemtray";
-          type = with lib.types; listOf str;
-
-          default = [
-            "steam"
-            "org.kde.plasma.brightness"
-            "org.kde.plasma.clipboard"
-            "org.kde.plasma.notifications"
-          ];
-        };
+        default = [
+          "steam"
+          "org.kde.plasma.brightness"
+          "org.kde.plasma.clipboard"
+          "org.kde.plasma.notifications"
+        ];
       };
     };
   };
 
-  config = lib.mkIf (user.desktop == "plasma") {
+  config = lib.mkIf (sysCfg.desktop.enable && sysCfg.desktop.manager == "plasma") {
     # Disable stylix theming for KDE Plasma
     stylix.targets.kde.enable = false;
 
@@ -100,14 +100,14 @@ in
             }
             {
               iconTasks = {
-                launchers = config.plasma.pinnedItems;
+                launchers = cfg.pinnedItems;
               };
             }
             "org.kde.plasma.marginsseparator"
             {
               systemTray = {
-                items.shown = config.plasma.systemTray.itemsShown;
-                items.hidden = config.plasma.systemTray.itemsHidden;
+                items.shown = cfg.systemTray.itemsShown;
+                items.hidden = cfg.systemTray.itemsHidden;
               };
             }
             {
