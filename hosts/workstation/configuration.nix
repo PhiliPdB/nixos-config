@@ -61,12 +61,15 @@
   nixpkgs.config.allowUnfree = true;
 
 
-  # Install steam and steam-related applications
-  steam.enable = true;
-  # Enable VIA
-  via.enable = true;
-  # Enable winapps for MS Office
-  winapps.enable = true;
+  # Setup system programs
+  cfg.programs = {
+    # Install steam and steam-related applications
+    steam.enable = true;
+    # Enable VIA
+    via.enable = true;
+    # Enable winapps for MS Office
+    winapps.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     kdePackages.kamera # For camera communication in KDE Plasma

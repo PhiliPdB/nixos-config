@@ -1,12 +1,13 @@
 { config, lib, pkgs, inputs, ... }:
 let
+  cfg = config.cfg.programs.winapps;
   winappsPkgs = inputs.winapps.packages."${pkgs.system}";
 in {
-  options = {
-    winapps.enable = lib.mkEnableOption "Enable WinApps to run Windows applications in Docker container";
+  options.cfg.programs.winapps = {
+    enable = lib.mkEnableOption "Enable WinApps to run Windows applications in Docker container";
   };
 
-  config = lib.mkIf config.winapps.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with winappsPkgs; [
       winapps
       winapps-launcher

@@ -1,14 +1,18 @@
 { config, lib, pkgs, ...}:
+let
+  cfg = config.cfg.programs.steam;
+in
 {
-  options = {
-    steam.enable = lib.mkEnableOption "Enable Steam and gaming related applications";
+  options.cfg.programs.steam = {
+    enable = lib.mkEnableOption "Enable Steam and gaming related applications";
   };
 
-  config = lib.mkIf config.steam.enable {
+  config = lib.mkIf cfg.enable {
     # Enable steam
     programs.steam = {
       enable = true;
 
+      # Setup the firewall
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
@@ -27,7 +31,5 @@
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "\${HOME}/.steam/root/compatibilitytools.d";
     };
-
-    # Remember to run protonup after first installation
   };
 }

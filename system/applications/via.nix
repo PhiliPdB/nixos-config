@@ -1,10 +1,13 @@
 { config, lib, pkgs, ... }:
+let
+  cfg = config.cfg.programs.via;
+in
 {
-  options = {
-    via.enable = lib.mkEnableOption "Install VIA application";
+  options.cfg.programs.via = {
+    enable = lib.mkEnableOption "Install VIA application";
   };
 
-  config = lib.mkIf config.via.enable {
+  config = lib.mkIf cfg.enable {
     # Expose QMK to non-root users
     hardware.keyboard.qmk.enable = true;
 
