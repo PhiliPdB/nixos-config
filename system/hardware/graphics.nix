@@ -1,9 +1,9 @@
 { lib, config, ... }:
 let
-  cfg = config.cfg.graphics;
+  cfg = config.cfg.hardware.graphics;
 in
 {
-  options.cfg.graphics = {
+  options.cfg.hardware.graphics = {
     enable = lib.mkEnableOption "Enable hardware graphics";
 
     manufacturer = lib.mkOption {

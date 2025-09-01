@@ -19,14 +19,17 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Make sure we have a desktop environment
-  desktop-environment.enable = user.desktop != null;
-  kde-plasma.enable = user.desktop == "plasma";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  cfg.graphics = {
+  # Set the desktop environment
+  cfg.desktop = {
+    enable = true;
+    manager = "plasma";
+  };
+
+  # Setup hardware graphics
+  cfg.hardware.graphics = {
     enable = true;
     manufacturer = "nvidia";
   };
