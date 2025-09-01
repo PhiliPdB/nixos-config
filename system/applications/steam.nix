@@ -4,7 +4,7 @@ let
 in
 {
   options.cfg.programs.steam = {
-    enable = lib.mkEnableOption "Enable Steam and gaming related applications";
+    enable = lib.mkEnableOption "Whether to enable Steam and gaming related applications";
   };
 
   config = lib.mkIf cfg.enable {

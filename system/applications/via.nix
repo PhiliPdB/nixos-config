@@ -4,7 +4,7 @@ let
 in
 {
   options.cfg.programs.via = {
-    enable = lib.mkEnableOption "Install VIA application";
+    enable = lib.mkEnableOption "Whether to install VIA application";
   };
 
   config = lib.mkIf cfg.enable {
