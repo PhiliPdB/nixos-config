@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, user, meta, ... }:
+{ lib, config, pkgs, inputs, user, meta, ... }:
 
 {
   imports = [
@@ -25,37 +25,19 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Make sure we have a desktop environment
-  desktop-environment.enable = user.desktop != null;
-  kde-plasma.enable = user.desktop == "plasma";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  cfg.desktop = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    manager = "plasma";
   };
 
-  # Enable hardware graphics
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    open = false;
-    powerManagement.enable = true;
+  # Setup hardware graphics
+  cfg.hardware.graphics = {
+    enable = true;
+    manufacturer = "nvidia";
   };
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {
@@ -71,15 +53,19 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [
-      (if user.desktop == "plasma" then inputs.plasma-manager.homeManagerModules.plasma-manager else {})
-    ];
+    sharedModules =
+      lib.optional (config.cfg.desktop.manager == "plasma")
+        inputs.plasma-manager.homeManagerModules.plasma-manager;
 
     users = {
       ${user.username} = import ./home.nix;
     };
     # also pass the inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs user meta; };
+    extraSpecialArgs = {
+      inherit inputs user meta;
+      # Share custom system config
+      sysCfg = config.cfg;
+    };
   };
 
 
@@ -87,10 +73,12 @@
   nixpkgs.config.allowUnfree = true;
 
 
-  # Install steam and steam-related applications
-  steam.enable = true;
-  # Enable VIA
-  via.enable = true;
+  cfg.programs = {
+    # Install steam and steam-related applications
+    steam.enable = true;
+    # Enable VIA
+    via.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     kdePackages.kamera # For camera communication in KDE Plasma

@@ -19,12 +19,13 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  # Set options in imported modules
-  office.enable = true;
-  proton-apps.enable = true;
+  cfg.programs = {
+    office.enable = true;
+    proton.enable = true;
+  };
 
   # Set plasma options
-  plasma = {
+  cfg.plasma = {
     pinnedItems = [
       "preferred://filemanager"
       "preferred://browser"
