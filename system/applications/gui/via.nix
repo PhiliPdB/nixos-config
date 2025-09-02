@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 let
+  guiAppsEnabled = config.cfg.guiApplications;
   cfg = config.cfg.programs.via;
 in
 {
@@ -7,7 +8,7 @@ in
     enable = lib.mkEnableOption "Whether to install VIA application";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (guiAppsEnabled && cfg.enable) {
     # Expose QMK to non-root users
     hardware.keyboard.qmk.enable = true;
 

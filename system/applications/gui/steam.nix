@@ -1,5 +1,6 @@
 { config, lib, pkgs, ...}:
 let
+  guiAppsEnabled = config.cfg.guiApplications;
   cfg = config.cfg.programs.steam;
 in
 {
@@ -7,7 +8,7 @@ in
     enable = lib.mkEnableOption "Whether to enable Steam and gaming related applications";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (guiAppsEnabled && cfg.enable) {
     # Enable steam
     programs.steam = {
       enable = true;

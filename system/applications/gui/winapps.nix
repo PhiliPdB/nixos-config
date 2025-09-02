@@ -1,13 +1,16 @@
 { config, lib, pkgs, inputs, ... }:
 let
+  guiAppsEnabled = config.cfg.guiApplications;
   cfg = config.cfg.programs.winapps;
+
   winappsPkgs = inputs.winapps.packages."${pkgs.system}";
-in {
+in
+{
   options.cfg.programs.winapps = {
     enable = lib.mkEnableOption "Whether to enable WinApps to run Windows applications in Docker container";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (guiAppsEnabled && cfg.enable) {
     environment.systemPackages = with winappsPkgs; [
       winapps
       winapps-launcher

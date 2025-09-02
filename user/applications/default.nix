@@ -1,10 +1,11 @@
 { ... }:
 {
   imports = [
-    ./btop.nix
-    ./konsole.nix
-    ./office.nix
-    ./proton.nix
-    ./vscode.nix
+    ./tui/btop.nix
+
+    ./gui/konsole.nix
+    ./gui/office.nix
+    ./gui/proton.nix
+    ./gui/vscode.nix
   ];
 }

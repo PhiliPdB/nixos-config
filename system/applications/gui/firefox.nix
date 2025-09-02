@@ -1,7 +1,10 @@
-{ ... }:
+{ lib, config, ... }:
+let
+  guiAppsEnabled = config.cfg.guiApplications;
+in
 {
   programs.firefox = {
-    enable = true;
+    enable = lib.mkDefault guiAppsEnabled;
     languagePacks = [ "en-US" "nl" ];
 
     preferences = {
