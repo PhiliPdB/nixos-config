@@ -7,12 +7,7 @@ in
     enable = lib.mkEnableOption "Enable hardware graphics";
 
     manufacturer = lib.mkOption {
-      type =
-        with lib.types;
-        enum [
-          "amd"
-          "nvidia"
-        ];
+      type = lib.types.enum [ "nvidia" ]; # NOTE: Only NVIDIA is supported for now
       description = "The manufacturer of the GPU.";
     };
   };
@@ -27,6 +22,7 @@ in
       services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
       hardware.nvidia = {
         open = lib.mkDefault false;
+        # Fixes issues with hibernation
         powerManagement.enable = lib.mkDefault true;
       };
     }
