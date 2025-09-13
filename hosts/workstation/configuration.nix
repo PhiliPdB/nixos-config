@@ -48,7 +48,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     sharedModules = lib.mkIf (config.cfg.desktop.manager == "plasma") [
-      inputs.plasma-manager.homeManagerModules.plasma-manager
+      inputs.plasma-manager.homeModules.plasma-manager
     ];
 
     users = {

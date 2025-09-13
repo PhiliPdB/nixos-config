@@ -55,7 +55,7 @@
     useUserPackages = true;
     sharedModules =
       lib.optional (config.cfg.desktop.manager == "plasma")
-        inputs.plasma-manager.homeManagerModules.plasma-manager;
+        inputs.plasma-manager.homeModules.plasma-manager;
 
     users = {
       ${user.username} = import ./home.nix;
