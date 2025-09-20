@@ -9,6 +9,7 @@ Feel free to open a discussion or issue on how I could improve certain parts.
 The folder structure of the project is as follows:
 ```
 .
+├── dotfiles/       <- Dotfiles for specific programs not configured via Nix
 ├── hosts/          <- Machine specific configuration
 │   └── <machine-name>/
 │       ├── configuration.nix

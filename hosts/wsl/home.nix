@@ -1,6 +1,6 @@
 { inputs, user, pkgs, ... }:
 let
-  cfgBaseDir = inputs.self.outputs.homeManagerModules.default;
+  cfgBaseDir = inputs.self.outputs.homeModules.default;
 in
 {
   # TODO: Update config so this can be the user folder

@@ -1,4 +1,7 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
+let
+  dotfilesDir = inputs.self.outputs.dotfiles.default;
+in
 {
   options = {
     zsh.enable = lib.mkEnableOption "enable zsh";
@@ -39,7 +42,7 @@
         }
         {
           name = "powerlevel10k-config";
-          src = lib.cleanSource ../dotfiles;
+          src = lib.cleanSource (dotfilesDir + /zsh);
           file = "p10k-config.zsh";
         }
       ];

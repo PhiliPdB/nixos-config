@@ -38,7 +38,7 @@
         email = "phlpdbrn@gmail.com";
         gpgKey = "4EC55FB707DC24C4";
 
-        profileImage = ./user/dotfiles/profile.png;
+        profileImage = ./dotfiles/profile.png;
         wallpaper = {
           desktop    = ./wallpapers/ribblehead-station.jpg;
           lockscreen = ./wallpapers/partial-solar-eclipse.jpg;
@@ -96,10 +96,10 @@
                 ./system
               ];
             };
-        wsl = 
+        wsl =
           let
             system = "x86_64-linux";
-            
+
             meta = {
               inherit themesPath;
               systemName = "nixos-wsl";
@@ -123,6 +123,7 @@
             };
       };
 
-      homeManagerModules.default = ./user;
+      homeModules.default = ./user;
+      dotfiles.default = ./dotfiles;
     };
 }

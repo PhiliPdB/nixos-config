@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.self.outputs.homeManagerModules.default
+    inputs.self.outputs.homeModules.default
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
