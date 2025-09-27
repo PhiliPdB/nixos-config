@@ -45,6 +45,16 @@ return {
       --   },
       -- },
       -- pickers = {}
+      defaults = {
+        mappings = {
+          i = {
+            ['<C-j>'] = 'move_selection_next',
+            ['<C-k>'] = 'move_selection_previous',
+            -- Freeze the current list and fuzzy search in the frozen list
+            ['<C-space>'] = require('telescope.actions').to_fuzzy_refine,
+          },
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),

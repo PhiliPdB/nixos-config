@@ -6,7 +6,7 @@ return {
       contrast = {
         terminal = true,
         sidebars = true,
-        floating_windows = true,
+        floating_windows = false,
         cursor_line = false,
         lsp_virtual_test = true,
       },
