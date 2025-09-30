@@ -2,24 +2,6 @@
 let
   dotfilesDir = inputs.self.outputs.dotfiles.default;
   neovimConfigDir = dotfilesDir + "/nvim";
-
-  packages = with pkgs; {
-    tools = [
-      fzf
-      tree-sitter
-    ];
-
-    c = [
-      cmake
-      gcc
-      gnumake
-    ];
-
-    luatools = [
-      lua-language-server
-      stylua
-    ];
-  };
 in
 {
   # TODO: Disable stylix?!
@@ -30,9 +12,16 @@ in
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraPackages = lib.pipe packages [
-      (lib.mapAttrsToList (name: value: value))
-      lib.flatten
+    extraPackages = with pkgs; [
+      # General tools
+      fzf
+      tree-sitter
+      # Required for compilation
+      cmake
+      gcc
+      gnumake
+      # Others
+      nodejs
     ];
   };
 
