@@ -1,23 +1,17 @@
 return {
-  'marko-cerovac/material.nvim',
+  'navarasu/onedark.nvim',
   priority = 1000, -- Make sure to load this before all the other start plugins.
   config = function()
-    require('material').setup({
-      contrast = {
-        terminal = true,
-        sidebars = true,
-        floating_windows = false,
-        cursor_line = false,
-        lsp_virtual_test = true,
-      },
+    local onedark = require('onedark')
+    onedark.setup {
+      style = 'darker',
+      transparent = true,
 
-      disable = {
-        background = true,
-      },
-    })
+      ending_tildes = true,
+    }
 
-    vim.g.material_style = 'darker'
-    vim.cmd.colorscheme('material')
+    --Enable theme
+    onedark.load()
   end,
 }
 
