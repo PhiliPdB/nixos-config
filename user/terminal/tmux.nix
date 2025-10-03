@@ -1,4 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
+  stylix.targets.tmux.enable = false;
+
+  # Install tmux sessionizer
+  home.packages = with pkgs; [
+    tmux-sessionizer
+  ];
+
+  # Tmux setup
   programs.tmux =
     let
       tokyo-night-tmux = pkgs.tmuxPlugins.mkTmuxPlugin {
@@ -16,48 +25,47 @@
     in
     {
       enable = true;
-      terminal = "xterm-256color";
+      terminal = "screen-256color";
       clock24 = true;
+      newSession = true;
 
       keyMode = "vi";
       mouse = true;
+      focusEvents = true;
 
       baseIndex = 1;
-      shortcut = "Space";
+      shortcut = "a";
 
-      sensibleOnTop = true;
       plugins = with pkgs; [
-        {
-          plugin = tokyo-night-tmux;
-          extraConfig = ''
-            set -g @tokyo-night-tmux_show_datetime 0
-            set -g @tokyo-night-tmux_window_id_style none
-          '';
-        }
+        # {
+        #   plugin = tokyo-night-tmux;
+        #   extraConfig = ''
+        #     set -g @tokyo-night-tmux_show_datetime 0
+        #     set -g @tokyo-night-tmux_window_id_style none
+        #   '';
+        # }
       ];
 
       extraConfig = ''
-        # Vim style pane selection
-        bind h select-pane -L
-        bind j select-pane -D
-        bind k select-pane -U
-        bind l select-pane -R
+        ### Tmux sessionizer
 
-        ### Arrow keys for pane selection
+        # Open new project
+        bind o display-popup -w 80% -h 60% -E "tms"
+        bind s display-popup -w 80% -h 60% -E "tms switch"
+        bind C-r "run-shell 'tms refresh'"
 
-        # Use Alt-arrow keys without prefix key to switch panes
-        bind -n M-Left select-pane -L
-        bind -n M-Right select-pane -R
-        bind -n M-Up select-pane -U
-        bind -n M-Down select-pane -D
+        # Quick shortcuts
+        bind C-1 "run-shell 'tms marks open 0'"
+        bind C-2 "run-shell 'tms marks open 1'"
+        bind C-3 "run-shell 'tms marks open 2'"
+        bind C-4 "run-shell 'tms marks open 3'"
 
-        # Shift arrow to switch windows
-        bind -n S-Left  previous-window
-        bind -n S-Right next-window
 
-        # Shift Alt vim keys to switch windows
-        bind -n M-H previous-window
-        bind -n M-L next-window
+        # Window selection bindings
+        bind -r h select-pane -L
+        bind -r j select-pane -D
+        bind -r k select-pane -U
+        bind -r l select-pane -R
 
         ### Other key bindings
 
@@ -73,6 +81,9 @@
         # More intuitive pane splitting
         bind | split-window -h
         bind - split-window -v
+
+        # Set true color support
+        set-option -a terminal-features 'xterm-256color:RGB'
       '';
     };
 }
