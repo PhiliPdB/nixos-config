@@ -1,10 +1,13 @@
-{ lib, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 let
-  dotfilesDir = inputs.self.outputs.dotfiles.default;
-  neovimConfigDir = dotfilesDir + "/nvim";
+  neovimConfigDir = "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
 in
 {
-  # TODO: Disable stylix?!
+  # Disable stylix
   stylix.targets.neovim.enable = false;
 
   programs.neovim = {
@@ -14,7 +17,9 @@ in
 
     extraPackages = with pkgs; [
       # General tools
+      fd
       fzf
+      ripgrep
       tree-sitter
       # Required for compilation
       cmake
@@ -31,9 +36,8 @@ in
     VISUAL = "nvim";
   };
 
-  # TODO: Figure out this symlink
-  # xdg.configFile."nvim/lua" = {
-  #   recursive = true;
-  #   source = neovimConfigDir + "/lua";
-  # };
+  # Symlink config dir, but out of store so changes apply directly
+  home.file.".config/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink neovimConfigDir;
+  };
 }
