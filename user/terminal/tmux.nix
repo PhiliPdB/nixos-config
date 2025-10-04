@@ -52,6 +52,16 @@
         unbind r
         bind r source-file ~/.config/tmux/tmux.conf
 
+        ### Status bar config
+
+        set -g status-position top
+        set -g status-justify absolute-centre
+        set -g status-style "bg=#30363f"
+        set -g window-status-current-style "fg=#4fa6ed bold"
+        set -g status-left "#S"
+        set -g status-left-length 40
+        set -g status-right ""
+
         ### Tmux sessionizer
 
         # Open new project
