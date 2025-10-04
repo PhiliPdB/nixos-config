@@ -37,6 +37,7 @@
       shortcut = "a";
 
       plugins = with pkgs; [
+        unstable.tmuxPlugins.vim-tmux-navigator
         # {
         #   plugin = tokyo-night-tmux;
         #   extraConfig = ''
@@ -47,6 +48,10 @@
       ];
 
       extraConfig = ''
+        # Reload Tmux config
+        unbind r
+        bind r source-file ~/.config/tmux/tmux.conf
+
         ### Tmux sessionizer
 
         # Open new project
@@ -61,11 +66,17 @@
         bind C-4 "run-shell 'tms marks open 3'"
 
 
-        # Window selection bindings
+        ### Window selection and resizing bindings
+
         bind -r h select-pane -L
         bind -r j select-pane -D
         bind -r k select-pane -U
         bind -r l select-pane -R
+
+        bind -r H resize-pane -L 5
+        bind -r J resize-pane -D 5
+        bind -r K resize-pane -U 5
+        bind -r L resize-pane -R 5
 
         ### Other key bindings
 
@@ -84,6 +95,8 @@
 
         # Set true color support
         set-option -a terminal-features 'xterm-256color:RGB'
+        # Reduce escape time for neovim
+        set-option -sg escape-time 10
       '';
     };
 }
