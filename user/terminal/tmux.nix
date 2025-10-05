@@ -21,10 +21,6 @@
     baseIndex = 1;
     shortcut = "a";
 
-    plugins = with pkgs; [
-      unstable.tmuxPlugins.vim-tmux-navigator
-    ];
-
     extraConfig = ''
       # Reload Tmux config
       unbind r
