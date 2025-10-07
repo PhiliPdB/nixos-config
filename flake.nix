@@ -118,6 +118,7 @@
                 ./system/desktop
                 ./system/localization.nix
                 ./system/nixos.nix
+                ./system/stylix.nix
                 ./system/system-packages.nix
               ];
             };

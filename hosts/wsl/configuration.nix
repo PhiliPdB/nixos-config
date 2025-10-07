@@ -55,6 +55,11 @@
   # Enable nix-ld for vscode server and csharp development
   programs.nix-ld.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    # Setup clipboard for neovim
+    xclip
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
