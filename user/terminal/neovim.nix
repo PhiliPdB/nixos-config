@@ -25,8 +25,12 @@ in
       cmake
       gcc
       gnumake
+      # For lazy.nvim
+      lua51Packages.lua
+      lua51Packages.luarocks
       # Others
       nodejs
+      python3
     ];
   };
 
