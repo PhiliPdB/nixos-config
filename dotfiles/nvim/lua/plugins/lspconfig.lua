@@ -164,7 +164,6 @@ return {
     local servers = {
       'lua_ls',
       'nixd',
-      'omnisharp',
       'roslyn_ls',
       'rust_analyzer',
     }
