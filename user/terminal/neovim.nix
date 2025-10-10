@@ -28,6 +28,8 @@ in
       # For lazy.nvim
       lua51Packages.lua
       lua51Packages.luarocks
+      # Spell checking
+      ltex-ls-plus
       # Others
       nodejs
       python3
