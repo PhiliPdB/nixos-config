@@ -5,6 +5,7 @@
 DIRS=(
     "$HOME"
     "$HOME/repositories"
+    "$HOME/repositories/university"
 )
 
 # Get selected either from the argument or fzf
