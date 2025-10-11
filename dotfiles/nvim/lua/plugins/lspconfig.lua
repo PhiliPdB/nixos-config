@@ -167,6 +167,7 @@ return {
       'nixd',
       'roslyn_ls',
       'rust_analyzer',
+      'texlab',
     }
 
     -- Setup the language servers
