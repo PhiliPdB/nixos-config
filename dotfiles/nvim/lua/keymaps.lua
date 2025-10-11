@@ -24,7 +24,10 @@ vim.keymap.set('n', '<leader>Y', '"+Y')
 -- Switch to previous buffer
 vim.keymap.set('n', '<leader><leader>', ':b#<CR>')
 -- Remove buffer
-vim.keymap.set('n', '<leader>db', ':bd<CR>')
+-- vim.keymap.set('n', '<leader>db', ':bd<CR>')
+vim.keymap.set('n', '<leader>db', function()
+  require('mini.bufremove').delete()
+end)
 
 -- NOTE: LSP keymaps are set in lspconfig.lua when LSP attaches
 
