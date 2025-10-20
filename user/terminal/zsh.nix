@@ -1,4 +1,10 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   dotfilesDir = inputs.self.outputs.dotfiles.default;
 in
@@ -19,7 +25,8 @@ in
       history =
         let
           hist_size = 10000;
-        in {
+        in
+        {
           size = hist_size;
           save = hist_size;
           append = true;
@@ -59,8 +66,12 @@ in
           "gitignore"
           "pyenv"
           "sudo"
+          "vi-mode"
           "wd"
         ];
+        extraConfig = ''
+          VI_MODE_SET_CURSOR=true
+        '';
       };
     };
   };
