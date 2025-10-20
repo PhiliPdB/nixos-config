@@ -1,4 +1,9 @@
-{ lib, sysCfg, meta, ... }:
+{
+  lib,
+  sysCfg,
+  meta,
+  ...
+}:
 let
   guiAppsEnabled = sysCfg.guiApplications;
 in
@@ -8,8 +13,9 @@ in
       enable = true;
 
       customColorSchemes = {
-        "Oxygen" = meta.themesPath + /color-schemes/Oxygen.colorscheme;
+        "OneDark" = meta.themesPath + /color-schemes/OneDark.colorscheme;
         "Material Darker" = meta.themesPath + /color-schemes/Material-darker.colorscheme;
+        "Oxygen" = meta.themesPath + /color-schemes/Oxygen.colorscheme;
       };
 
       defaultProfile = "CustomProfile";

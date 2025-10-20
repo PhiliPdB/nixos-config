@@ -2,6 +2,7 @@
   imports = [
     ./bat.nix
     ./fzf.nix
+    ./neovim.nix
     ./tmux.nix
     ./zsh.nix
   ];
@@ -19,14 +20,14 @@
 
   # Set default shell aliases
   home.shellAliases = {
-      ls = "lsd";
-      ll = "ls -lF";
-      la = "ls -A";
-      lla = "ls -alF";
+    ls = "lsd";
+    ll = "ls -lF";
+    la = "ls -A";
+    lla = "ls -alF";
 
-      cat = "bat";
+    cat = "bat";
 
-      venv = "source ./venv/bin/activate";
+    venv = "source ./venv/bin/activate";
   };
 
   # Enable zoxide
