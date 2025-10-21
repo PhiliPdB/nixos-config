@@ -73,25 +73,13 @@ in
         in
         lib.mkMerge [ zvm_config ];
 
-      # oh-my-zsh = {
-      #   enable = true;
-      #   plugins = [
-      #     "cabal"
-      #     "colored-man-pages"
-      #     "colorize"
-      #     "docker"
-      #     "docker-compose"
-      #     "git"
-      #     "gitignore"
-      #     "pyenv"
-      #     "sudo"
-      #     "vi-mode"
-      #     "wd"
-      #   ];
-      #   extraConfig = ''
-      #     VI_MODE_SET_CURSOR=true
-      #   '';
-      # };
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "colored-man-pages"
+          "gitignore"
+        ];
+      };
     };
   };
 }
