@@ -80,8 +80,8 @@ in
 
       # Set true color support
       set-option -a terminal-features 'xterm-256color:RGB'
-      # Reduce escape time for neovim
-      set-option -sg escape-time 10
+      # Reduce escape time for neovim and vi-mode
+      set-option -sg escape-time 0
     '';
   };
 }

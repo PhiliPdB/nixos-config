@@ -42,6 +42,7 @@ in
         };
 
       plugins = [
+        # Prompt + prompt setup
         {
           name = "powerlevel10k";
           src = pkgs.zsh-powerlevel10k;
@@ -52,27 +53,45 @@ in
           src = lib.cleanSource (dotfilesDir + /zsh);
           file = "p10k-config.zsh";
         }
+        # Vi mode
+        {
+          name = "vi-mode";
+          src = pkgs.unstable.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
       ];
 
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          "cabal"
-          "colored-man-pages"
-          "colorize"
-          "docker"
-          "docker-compose"
-          "git"
-          "gitignore"
-          "pyenv"
-          "sudo"
-          "vi-mode"
-          "wd"
-        ];
-        extraConfig = ''
-          VI_MODE_SET_CURSOR=true
-        '';
-      };
+      initContent =
+        let
+          zvm_config = lib.mkOrder 500 ''
+            ZVM_INIT_MODE=sourcing
+            function zvm_config() {
+              ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+              ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+            }
+          '';
+        in
+        lib.mkMerge [ zvm_config ];
+
+      # oh-my-zsh = {
+      #   enable = true;
+      #   plugins = [
+      #     "cabal"
+      #     "colored-man-pages"
+      #     "colorize"
+      #     "docker"
+      #     "docker-compose"
+      #     "git"
+      #     "gitignore"
+      #     "pyenv"
+      #     "sudo"
+      #     "vi-mode"
+      #     "wd"
+      #   ];
+      #   extraConfig = ''
+      #     VI_MODE_SET_CURSOR=true
+      #   '';
+      # };
     };
   };
 }
