@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   imports = [
     ./bat.nix
     ./fzf.nix
@@ -24,10 +25,7 @@
     ll = "ls -lF";
     la = "ls -A";
     lla = "ls -alF";
-
-    cat = "bat";
-
-    venv = "source ./venv/bin/activate";
+    tree = "ls --tree";
   };
 
   # Enable zoxide
