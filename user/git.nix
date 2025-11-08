@@ -12,9 +12,16 @@
     };
 
     aliases = {
+      s = "status";
+
       r = "rebase";
       rc = "rebase --continue";
       ri = "rebase --interactive";
+
+      w = "worktree";
+      wls = "worktree list";
+      wa = "worktree add";
+      wr = "worktree remove";
     };
   };
 
