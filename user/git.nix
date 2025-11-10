@@ -12,7 +12,10 @@
     };
 
     aliases = {
+      c = "commit";
       s = "status";
+
+      fa = "fetch -all";
 
       r = "rebase";
       rc = "rebase --continue";
