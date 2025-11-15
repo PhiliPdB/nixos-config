@@ -168,6 +168,7 @@ return {
 
     -- Enable the following language servers
     local servers = {
+      'bashls',
       'ltex_plus',
       'lua_ls',
       'nixd',

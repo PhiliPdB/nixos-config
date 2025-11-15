@@ -28,11 +28,14 @@ in
       # For lazy.nvim
       lua51Packages.lua
       lua51Packages.luarocks
-      # Spell checking
-      ltex-ls-plus
       # Others
       nodejs
       python3
+
+      # General nice-to-have lsps
+      bash-language-server
+      # Spell checking
+      ltex-ls-plus
     ];
   };
 
