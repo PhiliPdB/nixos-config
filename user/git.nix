@@ -15,7 +15,7 @@
       c = "commit";
       s = "status";
 
-      fa = "fetch -all";
+      fa = "fetch --all";
 
       r = "rebase";
       rc = "rebase --continue";
