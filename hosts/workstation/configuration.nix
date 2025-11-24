@@ -2,7 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, config, pkgs, inputs, user, meta, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  user,
+  meta,
+  ...
+}:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -17,6 +25,10 @@
   networking.hostName = "pdb-workstation"; # Define your hostname.
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Do not enable wifi and bluetooth (at least for now)
+  networking.wireless.enable = false;
+  hardware.bluetooth.enable = false;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -37,12 +49,16 @@
   users.users.${user.username} = {
     isNormalUser = true;
     description = user.name;
-    extraGroups = [ "docker" "podman" "networkmanager" "wheel" ];
+    extraGroups = [
+      "docker"
+      "podman"
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
   # Enable zsh as it is the default shell
   programs.zsh.enable = true;
-
 
   home-manager = {
     useGlobalPkgs = true;
@@ -62,10 +78,8 @@
     };
   };
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
 
   # Setup system programs
   cfg.programs = {
@@ -95,7 +109,6 @@
 
   # Enable nix-ld for csharp development
   programs.nix-ld.enable = true;
-
 
   # List services that you want to enable:
 
