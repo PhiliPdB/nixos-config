@@ -29,7 +29,8 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs =
+    { nixpkgs, nixpkgs-unstable, ... }@inputs:
     let
       user = {
         name = "Philip";
@@ -40,7 +41,7 @@
 
         profileImage = ./dotfiles/profile.png;
         wallpaper = {
-          desktop    = ./wallpapers/ribblehead-station.jpg;
+          desktop = ./wallpapers/ribblehead-station.jpg;
           lockscreen = ./wallpapers/partial-solar-eclipse.jpg;
         };
       };
@@ -69,33 +70,15 @@
               systemName = "workstation";
             };
           in
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              specialArgs = { inherit inputs user meta; };
-              modules = [
-                unstable-overlay
-                ./hosts/workstation/configuration.nix
-                ./system
-              ];
-            };
-        workstation-trial =
-          let
-            system = "x86_64-linux";
-
-            meta = {
-              inherit themesPath;
-              systemName = "workstation-trial";
-            };
-          in
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              specialArgs = { inherit inputs user meta; };
-              modules = [
-                unstable-overlay
-                ./hosts/workstation-trial/configuration.nix
-                ./system
-              ];
-            };
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs user meta; };
+            modules = [
+              unstable-overlay
+              ./hosts/workstation/configuration.nix
+              ./system
+            ];
+          };
         wsl =
           let
             system = "x86_64-linux";
@@ -105,23 +88,23 @@
               systemName = "nixos-wsl";
             };
           in
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              specialArgs = { inherit inputs user meta; };
-              modules = [
-                inputs.nixos-wsl.nixosModules.default
-                unstable-overlay
-                ./hosts/wsl/configuration.nix
-                # Import the relevant common config
-                # TODO: Update config so this can be ./system
-                ./system/applications
-                ./system/desktop
-                ./system/localization.nix
-                ./system/nixos.nix
-                ./system/stylix.nix
-                ./system/system-packages.nix
-              ];
-            };
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs user meta; };
+            modules = [
+              inputs.nixos-wsl.nixosModules.default
+              unstable-overlay
+              ./hosts/wsl/configuration.nix
+              # Import the relevant common config
+              # TODO: Update config so this can be ./system
+              ./system/applications
+              ./system/desktop
+              ./system/localization.nix
+              ./system/nixos.nix
+              ./system/stylix.nix
+              ./system/system-packages.nix
+            ];
+          };
       };
 
       homeModules.default = ./user;
