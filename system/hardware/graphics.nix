@@ -21,7 +21,7 @@ in
     // lib.mkIf (cfg.manufacturer == "nvidia") {
       services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
       hardware.nvidia = {
-        open = lib.mkDefault false;
+        open = lib.mkDefault true;
         # Fixes issues with hibernation
         powerManagement.enable = lib.mkDefault true;
       };
