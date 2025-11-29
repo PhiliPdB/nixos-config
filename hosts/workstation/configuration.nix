@@ -27,7 +27,10 @@
 
   networking.hostName = "pdb-workstation"; # Define your hostname.
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [ networkmanager-openvpn ];
+  };
 
   # Do not enable wifi and bluetooth (at least for now)
   networking.wireless.enable = false;
