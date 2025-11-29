@@ -3,14 +3,14 @@
 
   inputs = {
     # Define nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Define nixos-wsl
     nixos-wsl.url = "github:nix-community/NixOS-WSL/release-25.05";
 
     # Home and Plasma Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
@@ -20,7 +20,7 @@
     };
 
     # General theming
-    stylix.url = "github:nix-community/stylix/release-25.05";
+    stylix.url = "github:nix-community/stylix/release-25.11";
 
     # Run windows apps in Docker
     winapps = {

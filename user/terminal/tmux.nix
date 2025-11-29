@@ -32,6 +32,9 @@ in
 
       set -g detach-on-destroy off
 
+      bind-key C-a last-window
+      bind-key a send-prefix
+
       ### Status bar config
 
       set -g status-position top

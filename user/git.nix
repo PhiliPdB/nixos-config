@@ -3,28 +3,32 @@
   programs.git = {
     enable = true;
 
-    userName = user.githubName;
-    userEmail = user.email;
+    settings = {
+      user = {
+        name = user.githubName;
+        email = user.email;
+      };
+
+      alias = {
+        c = "commit";
+        s = "status";
+
+        fa = "fetch --all";
+
+        r = "rebase";
+        rc = "rebase --continue";
+        ri = "rebase --interactive";
+
+        w = "worktree";
+        wls = "worktree list";
+        wa = "worktree add";
+        wr = "worktree remove";
+      };
+    };
 
     signing = {
       key = user.gpgKey;
       signByDefault = true;
-    };
-
-    aliases = {
-      c = "commit";
-      s = "status";
-
-      fa = "fetch --all";
-
-      r = "rebase";
-      rc = "rebase --continue";
-      ri = "rebase --interactive";
-
-      w = "worktree";
-      wls = "worktree list";
-      wa = "worktree add";
-      wr = "worktree remove";
     };
   };
 

@@ -6,9 +6,9 @@
     nerd-fonts.fira-code
     nerd-fonts.dejavu-sans-mono
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     open-sans
     roboto
-    vistafonts
+    vista-fonts
   ];
 }
