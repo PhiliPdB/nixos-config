@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Define nixos-wsl
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/release-25.05";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/release-25.11";
 
     # Home and Plasma Manager
     home-manager = {
