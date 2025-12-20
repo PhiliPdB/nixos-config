@@ -19,8 +19,7 @@
   ];
 
   # Set latest kernel
-  # TODO: Switch to latest once nvidia drivers are fixed
-  boot.kernelPackages = pkgs.linuxPackages_6_17;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
