@@ -1,4 +1,8 @@
-{ ... }: {
+{ pkgs, inputs, ... }:
+let
+  dotfilesDir = inputs.self.outputs.dotfiles.default;
+in
+{
   imports = [
     ./lua.nix
     ./nix.nix
@@ -10,4 +14,8 @@
 
     nix-direnv.enable = true;
   };
+
+  home.packages = with pkgs; [
+    (writeScriptBin "sf" (builtins.readFile (dotfilesDir + /scripts/setup-flake.sh)))
+  ];
 }
