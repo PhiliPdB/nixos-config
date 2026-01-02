@@ -13,7 +13,7 @@ if [ -f ./flake.nix ]; then
     case $yn in
         [Yy]*) ;;
         [Nn]*) exit 1;;
-        * ) echo "Please anser Y or N"; exit 1;;
+        * ) echo "Please answer Y or N"; exit 1;;
     esac
 fi
 
