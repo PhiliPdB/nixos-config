@@ -24,6 +24,8 @@ TEMPLATE="$1"
 TEMPLATE_PATH="$TEMPLATE_DIR/$TEMPLATE.nix"
 if [ -f "$TEMPLATE_PATH" ]; then
     cp "$TEMPLATE_PATH" ./flake.nix
+    # Open flake in editor
+    $EDITOR flake.nix
 else
     echo "Template '$TEMPLATE' does not exist"
 fi
