@@ -1,4 +1,9 @@
-{ inputs, user, pkgs, ... }:
+{
+  inputs,
+  user,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -45,10 +50,8 @@
 
     # Photo management
     digikam
-    # Import photos from camera
-    rapid-photo-downloader
     # Photo editing
-    unstable.rawtherapee
+    rawtherapee
 
     # Uncategorized
     obsidian
@@ -57,7 +60,6 @@
 
   # Set btop package to include CUDA
   programs.btop.package = (pkgs.btop.override { cudaSupport = true; });
-
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
