@@ -48,10 +48,10 @@
     unstable.element-desktop
     unstable.signal-desktop
 
-    # Photo management
-    digikam
-    # Photo editing
-    rawtherapee
+    # Photo related
+    digikam # Management
+    rawtherapee # Editing
+    gimp-with-plugins
 
     # Uncategorized
     obsidian
