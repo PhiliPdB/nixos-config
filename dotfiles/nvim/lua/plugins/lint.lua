@@ -7,6 +7,7 @@ return {
     lint.linters_by_ft = lint.linters_by_ft or {}
     lint.linters_by_ft['markdown'] = {}
     lint.linters_by_ft['rust'] = { 'clippy' }
+    lint.linters_by_ft['text'] = {}
 
     -- Create autocommand which carries out the actual linting
     -- on the specified events.
