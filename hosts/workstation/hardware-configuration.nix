@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -32,6 +31,11 @@
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/7fe569e3-4c2a-438c-afc8-b998444ee809";
+    fsType = "ext4";
+  };
+
+  fileSystems."/mnt/extra2" = {
+    device = "/dev/disk/by-uuid/f6fc2dcd-5644-458b-8c0c-c0e7c99ffd68";
     fsType = "ext4";
   };
 
