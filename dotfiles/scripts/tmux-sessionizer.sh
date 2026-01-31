@@ -2,12 +2,15 @@
 # Requirements: tmux, fzf
 # Modified from: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 
-# TODO: Maybe read from some config file?!
-DIRS=(
-    "$HOME"
-    "$HOME/repositories"
-    "$HOME/repositories/university"
-)
+# Try to source user config
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-sessionizer"
+if [ -f "$CONFIG_DIR/config" ]; then
+    source "$CONFIG_DIR/config"
+else # Setup default config
+    export TMS_DIRS=(
+        "$HOME/repositories"
+    )
+fi
 
 ## Helper functions
 
@@ -29,16 +32,31 @@ is_tmux_running() {
     fi
 }
 
+find_dirs() {
+    for entry in "${TMS_DIRS[@]}"; do
+        # Parse depth and path
+        # If path is like "2:/path/to/dir", set depth to 2
+        if [[ "$entry" =~ ^([0-9]+):(.+)$ ]]; then
+            depth="${BASH_REMATCH[1]}"
+            path="${BASH_REMATCH[2]}"
+        else
+            depth=1
+            path="$entry"
+        fi
+        # Set min depth as to work with 0 depth (which means only the given directory)
+        min_depth=$(( depth < 1 ? depth : 1 ))
+
+        [[ -d "$path" ]] && find "$path" -mindepth "$min_depth" -maxdepth "$depth" -type d ! -name ".*"
+    done
+}
+
 ## Sessionizer
 
 # Get selected either from the argument or fzf
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(\
-        find "${DIRS[@]}" -mindepth 1 -maxdepth 1 -type d ! -name ".*" \
-        | fzf \
-    )
+    selected=$(find_dirs | fzf)
 fi
 
 # Check if selected is not empty
@@ -54,7 +72,7 @@ if ! is_tmux_running; then
 fi
 
 # Else create detached session (if it does not exist)
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
     tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
