@@ -35,6 +35,8 @@
     };
 
     deploy-rs.url = "github:serokell/deploy-rs";
+
+    self.submodules = true;
   };
 
   outputs =
