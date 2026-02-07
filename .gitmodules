@@ -1,0 +1,3 @@
+[submodule "hosts/cloud"]
+	path = hosts/cloud
+	url = https://github.com/PhiliPdB/nix-server-config

@@ -19,6 +19,12 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # Disko (currently only used for Hetzner)
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # General theming
     stylix.url = "github:nix-community/stylix/release-25.11";
 
@@ -27,10 +33,17 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs =
-    { nixpkgs, nixpkgs-unstable, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }@inputs:
     let
       user = {
         name = "Philip";
@@ -61,6 +74,24 @@
     in
     {
       nixosConfigurations = {
+        cloud =
+          let
+            system = "x86_64-linux";
+
+            meta = {
+              inherit themesPath;
+              systemName = "cloud";
+            };
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs user meta; };
+            modules = [
+              inputs.disko.nixosModules.default
+              ./hosts/cloud/configuration.nix
+              ./system
+            ];
+          };
         workstation =
           let
             system = "x86_64-linux";
@@ -106,6 +137,22 @@
             ];
           };
       };
+
+      deploy.nodes = {
+        hetzner = {
+          hostname = "46.225.82.252";
+          sshUser = user.username;
+          interactiveSudo = true;
+          profiles.system = {
+            user = "root";
+            path = inputs.deploy-rs.lib."x86_64-linux".activate.nixos self.nixosConfigurations.cloud;
+          };
+        };
+      };
+
+      checks = builtins.mapAttrs (
+        system: deployLib: deployLib.deployChecks self.deploy
+      ) inputs.deploy-rs.lib;
 
       homeModules.default = ./user;
       dotfiles.default = ./dotfiles;
