@@ -50,6 +50,8 @@
     enable = true;
     manufacturer = "nvidia";
   };
+  # Setup audio
+  cfg.hardware.audio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {
@@ -86,6 +88,11 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # Enable Docker/Podman related tools
+  cfg.docker.enable = true;
+
+  # Setup fonts
+  cfg.fonts.enable = true;
 
   # Setup system programs
   cfg.programs = {
