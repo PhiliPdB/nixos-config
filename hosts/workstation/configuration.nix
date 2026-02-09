@@ -19,7 +19,7 @@
   ];
 
   # Set latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
