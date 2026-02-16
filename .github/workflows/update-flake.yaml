@@ -29,6 +29,9 @@ jobs:
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
             ```
+      - name: "Undo patch"
+        run: |
+          sed -i 's/submodules = false;/submodules = true;/' flake.nix
 
       - name: "Print PR number"
         run: echo "Pull request number is ${{ steps.update.outputs.pr_number }}"
