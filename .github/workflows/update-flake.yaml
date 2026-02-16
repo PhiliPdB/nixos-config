@@ -13,6 +13,9 @@ jobs:
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v31
 
+      - name: "Patch flake"
+        run: |
+          sed -i 's/submodules = true;/submodules = false;/' flake.nix
       - name: "Update flake.lock"
         id: update
         uses: DeterminateSystems/update-flake-lock@v28
