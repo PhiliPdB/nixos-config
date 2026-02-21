@@ -13,9 +13,6 @@ jobs:
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v31
 
-      - name: "Patch flake"
-        run: |
-          sed -i 's/submodules = true;/submodules = false;/' flake.nix
       - name: "Update flake.lock"
         id: update
         uses: DeterminateSystems/update-flake-lock@v28
@@ -29,9 +26,5 @@ jobs:
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
             ```
-      - name: "Undo patch"
-        run: |
-          sed -i 's/submodules = false;/submodules = true;/' flake.nix
-
       - name: "Print PR number"
         run: echo "Pull request number is ${{ steps.update.outputs.pr_number }}"
