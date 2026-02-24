@@ -21,7 +21,7 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -69,3 +69,10 @@ vim.o.incsearch = true
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
+-- Folding (use treesitter)
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+vim.o.foldtext = ''
+vim.o.foldlevelstart = 1
+vim.o.foldnestmax = 2
