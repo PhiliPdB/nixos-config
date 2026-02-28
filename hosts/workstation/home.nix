@@ -51,6 +51,7 @@
     # Photo related
     digikam # Management
     rawtherapee # Editing
+    unstable.rapidraw
     gimp-with-plugins
 
     # Uncategorized
