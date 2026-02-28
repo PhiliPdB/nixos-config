@@ -140,7 +140,7 @@
 
       deploy.nodes = {
         hetzner = {
-          hostname = "46.225.82.252";
+          hostname = "philipdb.com";
           sshUser = user.username;
           interactiveSudo = true;
           profiles.system = {
