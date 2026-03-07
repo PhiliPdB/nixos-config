@@ -4,7 +4,7 @@
   ...
 }:
 let
-  neovimConfigDir = "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
+  neovimConfigDir = "${config.home.homeDirectory}/repositories/nvim-config";
 in
 {
   # Disable stylix
