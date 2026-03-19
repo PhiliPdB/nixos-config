@@ -6,7 +6,7 @@
     tmux = {
       enableShellIntegration = true;
       shellIntegrationOptions = [
-        "-p 80,60"
+        "-p 80%,60%"
       ];
     };
 
