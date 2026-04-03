@@ -89,7 +89,7 @@
             modules = [
               inputs.disko.nixosModules.default
               ./hosts/cloud/configuration.nix
-              ./system
+              ./modules/system
             ];
           };
         workstation =
@@ -107,7 +107,7 @@
             modules = [
               unstable-overlay
               ./hosts/workstation/configuration.nix
-              ./system
+              ./modules/system
             ];
           };
         wsl =
@@ -127,13 +127,13 @@
               unstable-overlay
               ./hosts/wsl/configuration.nix
               # Import the relevant common config
-              # TODO: Update config so this can be ./system
-              ./system/applications
-              ./system/desktop
-              ./system/localization.nix
-              ./system/nixos.nix
-              ./system/stylix.nix
-              ./system/system-packages.nix
+              # TODO: Update config so this can be ./modules/system
+              ./modules/system/applications
+              ./modules/system/desktop
+              ./modules/system/localization.nix
+              ./modules/system/nixos.nix
+              ./modules/system/stylix.nix
+              ./modules/system/system-packages.nix
             ];
           };
       };
@@ -154,7 +154,7 @@
         system: deployLib: deployLib.deployChecks self.deploy
       ) inputs.deploy-rs.lib;
 
-      homeModules.default = ./user;
+      homeModules.default = ./modules/user;
       dotfiles.default = ./dotfiles;
     };
 }

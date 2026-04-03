@@ -15,9 +15,11 @@ The folder structure of the project is as follows:
 │       ├── configuration.nix
 │       ├── hardware-configuration.nix
 │       └── home.nix
-├── system/         <- NixOS configuration modules
+├── modules/        <- General nix modules for reusable configuration between hosts
+│   ├── system/     <- NixOS configuration modules
+│   └── user/       <- Home manager configuration modules
+├── scripts/        <- Some maybe useful scripts
 ├── themes/         <- Extra theming configuration and definitions
-├── user/           <- Home manager configuration modules
 └── wallpapers/     <- Provided wallpapers
 ```
 
