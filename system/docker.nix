@@ -31,10 +31,14 @@ in
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      podman-compose # To replace docker-compose
-      podman-desktop # GUI for podman
-    ];
+    environment.systemPackages =
+      with pkgs;
+      [
+        podman-compose # To replace docker-compose
+      ]
+      ++ lib.optionals config.cfg.guiApplications [
+        podman-desktop # GUI for podman
+      ];
 
     environment.sessionVariables = {
       PODMAN_COMPOSE_WARNING_LOGS = "false";
