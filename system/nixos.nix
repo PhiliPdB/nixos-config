@@ -37,6 +37,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    dix
     # Expose nix-output-monitor for a nicer build output
     nix-output-monitor
   ];
