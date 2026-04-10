@@ -10,4 +10,9 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "03:00"
+    groups:
+      flake-inputs:
+        applies-to: version-updates
+        patterns:
+          - "*"
 
