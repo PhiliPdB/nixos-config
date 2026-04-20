@@ -16,5 +16,6 @@ in
   # Usefull user scripts
   home.packages = with pkgs; [
     (writeScriptBin "nr" (builtins.readFile (dotfilesDir + /scripts/nix-run.sh)))
+    (writeScriptBin "nsh" (builtins.readFile (dotfilesDir + /scripts/nix-shell.sh)))
   ];
 }
