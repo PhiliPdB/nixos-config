@@ -1,4 +1,12 @@
-{ config, lib, pkgs, sysCfg, user, meta, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  sysCfg,
+  user,
+  meta,
+  ...
+}:
 let
   cfg = config.cfg.plasma;
 
@@ -6,16 +14,17 @@ let
   # TODO: Generate from stylix?!
   colorTheme = builtins.readFile (meta.themesPath + "/color-schemes/${colorThemeName}.colors");
 
-  wallpaperPackage = pkgs.runCommandLocal "wallpaper-pack"
-    {
-      wallpaper = user.wallpaper.desktop;
-      lockscreen = user.wallpaper.lockscreen;
-    }
-    ''
-      mkdir -p $out/share/wallpapers
-      cp $wallpaper $out/share/wallpapers/desktop.jpg
-      cp $lockscreen $out/share/wallpapers/lockscreen.jpg
-    '';
+  wallpaperPackage =
+    pkgs.runCommandLocal "wallpaper-pack"
+      {
+        wallpaper = user.wallpaper.desktop;
+        lockscreen = user.wallpaper.lockscreen;
+      }
+      ''
+        mkdir -p $out/share/wallpapers
+        cp $wallpaper $out/share/wallpapers/desktop.jpg
+        cp $lockscreen $out/share/wallpapers/lockscreen.jpg
+      '';
 in
 {
   options.cfg.plasma = {
@@ -73,6 +82,10 @@ in
         lookAndFeel = "org.kde.breezedark.desktop";
         iconTheme = "Papirus-Dark";
         colorScheme = "MaterialDarker";
+        cursor = {
+          theme = "Bibata-Original-Ice";
+          size = 28;
+        };
       };
 
       # Set virtual desktops
@@ -83,7 +96,8 @@ in
 
       # Set panel layout
       panels = [
-        { # Bottom panel (Windows like)
+        {
+          # Bottom panel (Windows like)
           location = "bottom";
           alignment = "center";
           lengthMode = "fill";
@@ -124,7 +138,10 @@ in
       shortcuts = {
         "kwin"."Overview" = "Meta+Tab";
         # Meta+I to open system settings
-        "services/systemsettings.desktop"."_launch" = ["Meta+I" "Tools"];
+        "services/systemsettings.desktop"."_launch" = [
+          "Meta+I"
+          "Tools"
+        ];
       };
 
       kscreenlocker = {
