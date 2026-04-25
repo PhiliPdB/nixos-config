@@ -41,6 +41,9 @@
         co = "pr checkout";
         pv = "pr view";
       };
+
+      # Turn telemetry off
+      telemetry = "disabled";
     };
   };
 }
