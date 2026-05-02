@@ -86,8 +86,15 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Nixpkgs config
+  nixpkgs.config = {
+    # Allow unfree packages
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "openssl-1.1.1w" # For Discord Canary
+    ];
+  };
+
   # Enable Docker/Podman related tools
   cfg.docker.enable = true;
 
