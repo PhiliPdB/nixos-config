@@ -90,9 +90,6 @@
   nixpkgs.config = {
     # Allow unfree packages
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "openssl-1.1.1w" # For Discord Canary
-    ];
   };
 
   # Enable Docker/Podman related tools
