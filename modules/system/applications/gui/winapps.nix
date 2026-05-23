@@ -1,9 +1,15 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   guiAppsEnabled = config.cfg.guiApplications;
   cfg = config.cfg.programs.winapps;
 
-  winappsPkgs = inputs.winapps.packages."${pkgs.system}";
+  winappsPkgs = inputs.winapps.packages."${pkgs.stdenv.hostPlatform.system}";
 in
 {
   options.cfg.programs.winapps = {
