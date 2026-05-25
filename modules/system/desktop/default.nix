@@ -1,4 +1,4 @@
-{ pkgs, config, lib, user, ... }:
+{ config, lib, ... }:
 let
   cfg = config.cfg.desktop;
 in
@@ -20,23 +20,5 @@ in
   config = lib.mkIf cfg.enable {
     # Enable the X11 windowing system.
     services.xserver.enable = true;
-
-    # Setup sddm
-    services.displayManager.sddm = {
-      enable = true;
-    };
-
-    environment.systemPackages = [
-      # Set background of the breeze theme
-      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-        [General]
-        background=${user.wallpaper.lockscreen}
-      '')
-      # Set user profile icon
-      (pkgs.runCommand "user-icons" {} ''
-        mkdir -p $out/share/sddm/faces
-        ln -s ${user.profileImage} $out/share/sddm/faces/${user.username}.face.icon
-      '')
-    ];
   };
 }
