@@ -15,6 +15,12 @@ in
     vimAlias = true;
     vimdiffAlias = true;
 
+    withRuby = false;
+    withPython3 = true;
+
+    # init.lua is managed imperatively, from my nvim-config repo.
+    sideloadInitLua = true;
+
     extraPackages = with pkgs; [
       # General tools
       fd

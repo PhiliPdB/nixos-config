@@ -32,8 +32,7 @@
     plugins = with pkgs; [ networkmanager-openvpn ];
   };
 
-  # Do not enable wifi and bluetooth (at least for now)
-  networking.wireless.enable = false;
+  # Do not enable bluetooth (at least for now)
   hardware.bluetooth.enable = false;
 
   # Enable CUPS to print documents.

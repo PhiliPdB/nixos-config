@@ -2,7 +2,7 @@
 {
   home.packages = [
     pkgs.nixd
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
