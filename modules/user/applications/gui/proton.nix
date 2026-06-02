@@ -1,4 +1,10 @@
-{ lib, config, sysCfg, pkgs, ... }:
+{
+  lib,
+  config,
+  sysCfg,
+  pkgs,
+  ...
+}:
 let
   guiAppsEnabled = sysCfg.guiApplications;
   cfg = config.cfg.programs.proton;
@@ -11,7 +17,7 @@ in
   config = lib.mkIf (guiAppsEnabled && cfg.enable) {
     home.packages = with pkgs; [
       unstable.proton-pass
-      protonvpn-gui
+      proton-vpn
     ];
   };
 }

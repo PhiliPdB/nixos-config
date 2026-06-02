@@ -2,9 +2,9 @@
 {
   environment.systemPackages = with pkgs; [
     curl
+    fastfetch
     git
     htop
-    neofetch
     ripgrep
     sl
     wget

@@ -32,8 +32,7 @@
     plugins = with pkgs; [ networkmanager-openvpn ];
   };
 
-  # Do not enable wifi and bluetooth (at least for now)
-  networking.wireless.enable = false;
+  # Do not enable bluetooth (at least for now)
   hardware.bluetooth.enable = false;
 
   # Enable CUPS to print documents.
@@ -135,6 +134,14 @@
   # Enable Onedrive synchronisation service
   # TODO: With the GUI is this still needed?
   services.onedrive.enable = true;
+
+  # Configure vm for `nixos-rebuild build-vm`
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize = 1024 * 4;
+      cores = 4;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
