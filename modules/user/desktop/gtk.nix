@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -12,7 +11,6 @@
       name = "Breeze-Dark";
       package = pkgs.kdePackages.breeze-gtk;
     };
-    gtk4.theme = config.gtk.theme;
 
     cursorTheme = {
       name = "Bibata-Original-Ice";
