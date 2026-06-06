@@ -25,9 +25,6 @@ in
   home.username = user.username;
   home.homeDirectory = "/home/${user.username}";
 
-  # Silence gtk warning
-  gtk.gtk4.theme = null;
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
