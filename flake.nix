@@ -61,12 +61,12 @@
 
       themesPath = ./themes;
 
-      unstable-overlay = {
+      unstable-overlay = system: {
         nixpkgs.overlays = [
-          (final: prev: {
+          (final: _prev: {
             unstable = import nixpkgs-unstable {
               inherit (final) config;
-              localSystem = final.stdenv.hostPlatform;
+              inherit system;
             };
           })
         ];
@@ -105,7 +105,7 @@
             inherit system;
             specialArgs = { inherit inputs user meta; };
             modules = [
-              unstable-overlay
+              (unstable-overlay system)
               ./hosts/workstation/configuration.nix
               ./modules/system
             ];
@@ -124,7 +124,7 @@
             specialArgs = { inherit inputs user meta; };
             modules = [
               inputs.nixos-wsl.nixosModules.default
-              unstable-overlay
+              (unstable-overlay system)
               ./hosts/wsl/configuration.nix
               # Import the relevant common config
               # TODO: Update config so this can be ./modules/system
