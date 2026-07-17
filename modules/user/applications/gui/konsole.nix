@@ -20,6 +20,7 @@ in
 
       defaultProfile = "CustomProfile";
       profiles."CustomProfile" = {
+        font.name = "DejaVuSansM Nerd Font";
         colorScheme = "Material Darker";
       };
 
