@@ -133,7 +133,10 @@
 
   # Enable Onedrive synchronisation service
   # TODO: With the GUI is this still needed?
-  services.onedrive.enable = true;
+  services.onedrive = {
+    enable = true;
+    package = pkgs.unstable.onedrive;
+  };
 
   # Configure vm for `nixos-rebuild build-vm`
   virtualisation.vmVariant = {
