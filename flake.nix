@@ -8,6 +8,12 @@
     # Define nixos-wsl
     nixos-wsl.url = "github:nix-community/NixOS-WSL/release-26.05";
 
+    # Secure boot with lanzaboote
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home and Plasma Manager
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";

@@ -13,25 +13,33 @@
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
+    # Generated hardware config
     ./hardware-configuration.nix
+
+    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.home-manager.nixosModules.default
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # Disable systemd-boot because lanzaboot replaces it.
+  boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
 
   boot.initrd.luks.devices."luks-3315d2a5-77b5-4ca1-b516-3715f606ce18".device =
     "/dev/disk/by-uuid/3315d2a5-77b5-4ca1-b516-3715f606ce18";
 
+  # Networking setup
   networking.hostName = "pdb-spectre";
-  # Enable networking
   networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [ networkmanager-openvpn ];
   };
 
+  # Configure other device hardware
   hardware.bluetooth.enable = true;
 
   # Enable CUPS to print documents.
@@ -104,6 +112,9 @@
 
     # Easy temporary firewall management
     nixos-firewall-tool
+
+    # For debugging and troubleshooting Secure Boot
+    sbctl
   ];
 
   # Enable nix-ld for csharp development
