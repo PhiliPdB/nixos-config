@@ -92,6 +92,24 @@
               ./modules/system
             ];
           };
+        spectre =
+          let
+            system = "x86_64-linux";
+
+            meta = {
+              inherit themesPath;
+              systemName = "spectre";
+            };
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs user meta; };
+            modules = [
+              (unstable-overlay system)
+              ./hosts/spectre/configuration.nix
+              ./modules/system
+            ];
+          };
         workstation =
           let
             system = "x86_64-linux";
