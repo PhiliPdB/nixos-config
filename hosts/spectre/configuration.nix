@@ -41,6 +41,18 @@
 
   # Configure other device hardware
   hardware.bluetooth.enable = true;
+  # services.fprintd.enable = true; # No drivers for fingerprint scanner :(
+
+  # Howdy setup
+  services.linux-enable-ir-emitter.enable = true;
+  services.howdy.enable = true;
+
+  security.pam.howdy.enable = false; # Don't set by default
+  security.pam.services.kde.howdy = {
+    enable = true;
+    # Sufficient for lockscreen
+    control = "sufficient";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
