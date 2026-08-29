@@ -25,4 +25,4 @@ jobs:
 
       - name: "Build ${{ matrix.hostname }} NixOS config 🛠️"
         run: |
-          nix run github:Mic92/nix-fast-build -- --skip-cached --no-nom --flake .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel
+          nix run github:Mic92/nix-fast-build -- --skip-cached --flake .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel
