@@ -64,6 +64,16 @@
     manager = "plasma";
   };
 
+  # Hardware graphics
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+    ];
+  };
+
+  services.xserver.videoDrivers = [ "modesetting" ];
+
   # Setup audio
   cfg.hardware.audio.enable = true;
 
