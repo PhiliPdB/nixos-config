@@ -46,6 +46,7 @@
     # unstable.signal-desktop
 
     # Uncategorized
+    obsidian
     vlc
   ];
 
