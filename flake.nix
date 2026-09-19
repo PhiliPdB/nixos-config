@@ -3,8 +3,8 @@
 
   inputs = {
     # Define nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     # Define nixos-wsl
     nixos-wsl.url = "github:nix-community/NixOS-WSL/release-26.05";
 
