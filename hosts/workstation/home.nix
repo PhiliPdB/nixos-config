@@ -36,7 +36,6 @@
       "preferred://filemanager"
       "preferred://browser"
       "applications:steam.desktop"
-      "applications:code.desktop"
     ];
   };
 
