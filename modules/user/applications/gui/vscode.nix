@@ -1,11 +1,16 @@
-{ lib, sysCfg, pkgs, ... }:
+{
+  lib,
+  sysCfg,
+  pkgs,
+  ...
+}:
 let
   guiAppsEnabled = sysCfg.guiApplications;
 in
 {
   config = lib.mkIf guiAppsEnabled {
     home.packages = with pkgs; [
-      vscode
+      unstable.vscode
       vscode-runner
     ];
   };
