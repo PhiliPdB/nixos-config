@@ -1,4 +1,3 @@
-{ ... }:
 {
   programs.fzf = {
     enable = true;
@@ -11,14 +10,14 @@
     };
 
     # Options for fzf file finder (on Ctrl+T)
-    fileWidgetOptions = [
+    fileWidget.options = [
       "--walker-skip .git"
       "--preview 'bat --color=always --style=numbers --line-range=:500 {}"
       "--bind 'ctrl-/:change-preview-window(down|hidden|)'"
     ];
 
     # Options for fzf directory switcher (on ALT+C)
-    changeDirWidgetOptions = [
+    changeDirWidget.options = [
       "--walker-skip .git"
       "--preview 'lsd --tree {}'"
     ];
