@@ -1,4 +1,10 @@
-{ lib, config, sysCfg, pkgs, ... }:
+{
+  lib,
+  config,
+  sysCfg,
+  pkgs,
+  ...
+}:
 let
   guiAppsEnabled = sysCfg.guiApplications;
   cfg = config.cfg.programs.office;
@@ -10,7 +16,7 @@ in
 
   config = lib.mkIf (guiAppsEnabled && cfg.enable) {
     home.packages = with pkgs; [
-      libreoffice-qt6-fresh
+      libreoffice-qt
 
       hunspell
       hunspellDicts.en_GB-ize

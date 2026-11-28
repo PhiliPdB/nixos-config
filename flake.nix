@@ -3,10 +3,10 @@
 
   inputs = {
     # Define nixpkgs
-    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.11/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     # Define nixos-wsl
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/release-26.05";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
     # Secure boot with lanzaboote
     lanzaboote = {
@@ -16,7 +16,7 @@
 
     # Home and Plasma Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
@@ -32,7 +32,7 @@
     };
 
     # General theming
-    stylix.url = "github:nix-community/stylix/release-26.05";
+    stylix.url = "github:nix-community/stylix";
 
     # Run windows apps in Docker
     winapps = {
